@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package containerd.v1.services;
+
+import "google/protobuf/any.proto";
+import "github.com/docker/containerd/api/types/mount/mount.proto";
+
+service Container {
+	rpc Create(CreateRequest) returns (CreateResponse);
+
+	// TODO(stevvooe): Add important methods here.
+}
+
+// CreateRequest is used in the course of creating a container.
+message CreateRequest {
+	// ID is a unique, user provided identifier for the container.
+	string id = 1;
+
+	// Runtime specifies the container runtime to dispatch the create request.
+	string runtime = 2;
+
+	// Spec is a runtime specific configuration for the container.
+	google.protobuf.Any spec = 3;
+
+	// RootFS specifies mounts to perform in the host mount namespace to create
+	// the root filesystem for the container.
+	//
+	// While these are called "mounts", their behavior is runtime-specific.
+	// They may correspond directly to a syscall or may use another mechanism
+	// specific to the Snapshotter and runtime.
+	repeated types.Mount rootfs = 4;
+
+	// paths to make IO available
+	string stdin = 5;
+	string stdout = 6;
+	string stderr = 7;
+}
+
+message CreateResponse {
+	string id = 1;
+}
