@@ -14,6 +14,7 @@ type namespaceStore struct {
 	tx *bolt.Tx
 }
 
+// NewNamespaceStore provides a namespace store from the provided bolt transaction.
 func NewNamespaceStore(tx *bolt.Tx) namespaces.Store {
 	return &namespaceStore{tx: tx}
 }

@@ -22,6 +22,8 @@ type containerStore struct {
 	tx *bolt.Tx
 }
 
+// NewContainerStore returns a container store based on the provided bolt
+// transaction.
 func NewContainerStore(tx *bolt.Tx) containers.Store {
 	return &containerStore{
 		tx: tx,

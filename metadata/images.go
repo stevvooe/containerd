@@ -22,6 +22,7 @@ type imageStore struct {
 	tx *bolt.Tx
 }
 
+// NewImageStore provides a new image store from the bolt transaction.
 func NewImageStore(tx *bolt.Tx) images.Store {
 	return &imageStore{tx: tx}
 }
@@ -297,7 +298,7 @@ func writeImage(bkt *bolt.Bucket, image *images.Image) error {
 func encodeSize(size int64) ([]byte, error) {
 	var (
 		buf         [binary.MaxVarintLen64]byte
-		sizeEncoded []byte = buf[:]
+		sizeEncoded = buf[:]
 	)
 	sizeEncoded = sizeEncoded[:binary.PutVarint(sizeEncoded, size)]
 
