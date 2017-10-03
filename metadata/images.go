@@ -201,6 +201,22 @@ func (s *imageStore) Delete(ctx context.Context, name string) error {
 }
 
 func validateImage(image *images.Image) error {
+	if image.Name == "" {
+		return errors.Wrapf(errdefs.ErrInvalidArgument, "image name must not be empty")
+	}
+
+	if err := image.Target.Digest.Validate(); err != nil {
+		return errors.Wrapf(errdefs.ErrInvalidArgument, "Image.Target.Digest %q invalid: %v", image.Target.Digest, err)
+	}
+
+	if image.Target.Size <= 0 {
+		return errors.Wrapf(errdefs.ErrInvalidArgument, "Image.Target.Size must be greater than zero")
+	}
+
+	if image.Target.MediaType == "" {
+		return errors.Wrapf(errdefs.ErrInvalidArgument, "Image.Target.MediaType must be set")
+	}
+
 	for k, v := range image.Labels {
 		if err := labels.Validate(k, v); err != nil {
 			return errors.Wrapf(err, "image.Labels")
