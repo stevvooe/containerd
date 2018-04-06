@@ -76,21 +76,35 @@ func (x Status) String() string {
 func (Status) EnumDescriptor() ([]byte, []int) { return fileDescriptorTask, []int{0} }
 
 type Process struct {
-	ContainerID string    `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
-	ID          string    `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
-	Pid         uint32    `protobuf:"varint,3,opt,name=pid,proto3" json:"pid,omitempty"`
-	Status      Status    `protobuf:"varint,4,opt,name=status,proto3,enum=containerd.v1.types.Status" json:"status,omitempty"`
-	Stdin       string    `protobuf:"bytes,5,opt,name=stdin,proto3" json:"stdin,omitempty"`
-	Stdout      string    `protobuf:"bytes,6,opt,name=stdout,proto3" json:"stdout,omitempty"`
-	Stderr      string    `protobuf:"bytes,7,opt,name=stderr,proto3" json:"stderr,omitempty"`
-	Terminal    bool      `protobuf:"varint,8,opt,name=terminal,proto3" json:"terminal,omitempty"`
-	ExitStatus  uint32    `protobuf:"varint,9,opt,name=exit_status,json=exitStatus,proto3" json:"exit_status,omitempty"`
-	ExitedAt    time.Time `protobuf:"bytes,10,opt,name=exited_at,json=exitedAt,stdtime" json:"exited_at"`
+	ContainerID          string    `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	ID                   string    `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	Pid                  uint32    `protobuf:"varint,3,opt,name=pid,proto3" json:"pid,omitempty"`
+	Status               Status    `protobuf:"varint,4,opt,name=status,proto3,enum=containerd.v1.types.Status" json:"status,omitempty"`
+	Stdin                string    `protobuf:"bytes,5,opt,name=stdin,proto3" json:"stdin,omitempty"`
+	Stdout               string    `protobuf:"bytes,6,opt,name=stdout,proto3" json:"stdout,omitempty"`
+	Stderr               string    `protobuf:"bytes,7,opt,name=stderr,proto3" json:"stderr,omitempty"`
+	Terminal             bool      `protobuf:"varint,8,opt,name=terminal,proto3" json:"terminal,omitempty"`
+	ExitStatus           uint32    `protobuf:"varint,9,opt,name=exit_status,json=exitStatus,proto3" json:"exit_status,omitempty"`
+	ExitedAt             time.Time `protobuf:"bytes,10,opt,name=exited_at,json=exitedAt,stdtime" json:"exited_at"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *Process) Reset()                    { *m = Process{} }
 func (*Process) ProtoMessage()               {}
 func (*Process) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{0} }
+func (dst *Process) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Process.Merge(dst, src)
+}
+func (m *Process) XXX_Size() int {
+	return xxx_messageInfo_Process.Size(m)
+}
+func (m *Process) XXX_DiscardUnknown() {
+	xxx_messageInfo_Process.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Process proto.InternalMessageInfo
 
 type ProcessInfo struct {
 	// PID is the process ID.
@@ -98,12 +112,26 @@ type ProcessInfo struct {
 	// Info contains additional process information.
 	//
 	// Info varies by platform.
-	Info *google_protobuf2.Any `protobuf:"bytes,2,opt,name=info" json:"info,omitempty"`
+	Info                 *google_protobuf2.Any `protobuf:"bytes,2,opt,name=info" json:"info,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
 func (m *ProcessInfo) Reset()                    { *m = ProcessInfo{} }
 func (*ProcessInfo) ProtoMessage()               {}
 func (*ProcessInfo) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{1} }
+func (dst *ProcessInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ProcessInfo.Merge(dst, src)
+}
+func (m *ProcessInfo) XXX_Size() int {
+	return xxx_messageInfo_ProcessInfo.Size(m)
+}
+func (m *ProcessInfo) XXX_DiscardUnknown() {
+	xxx_messageInfo_ProcessInfo.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ProcessInfo proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*Process)(nil), "containerd.v1.types.Process")
@@ -188,6 +216,11 @@ func (m *Process) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n1
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -220,6 +253,11 @@ func (m *ProcessInfo) MarshalTo(dAtA []byte) (int, error) {
 			return 0, err
 		}
 		i += n2
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -270,6 +308,11 @@ func (m *Process) Size() (n int) {
 	}
 	l = types.SizeOfStdTime(m.ExitedAt)
 	n += 1 + l + sovTask(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -282,6 +325,11 @@ func (m *ProcessInfo) Size() (n int) {
 	if m.Info != nil {
 		l = m.Info.Size()
 		n += 1 + l + sovTask(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -314,6 +362,7 @@ func (this *Process) String() string {
 		`Terminal:` + fmt.Sprintf("%v", this.Terminal) + `,`,
 		`ExitStatus:` + fmt.Sprintf("%v", this.ExitStatus) + `,`,
 		`ExitedAt:` + strings.Replace(strings.Replace(this.ExitedAt.String(), "Timestamp", "google_protobuf1.Timestamp", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -325,6 +374,7 @@ func (this *ProcessInfo) String() string {
 	s := strings.Join([]string{`&ProcessInfo{`,
 		`Pid:` + fmt.Sprintf("%v", this.Pid) + `,`,
 		`Info:` + strings.Replace(fmt.Sprintf("%v", this.Info), "Any", "google_protobuf2.Any", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -630,6 +680,7 @@ func (m *Process) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -732,6 +783,7 @@ func (m *ProcessInfo) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

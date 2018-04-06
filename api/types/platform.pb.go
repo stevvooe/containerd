@@ -22,14 +22,28 @@ var _ = math.Inf
 // Platform follows the structure of the OCI platform specification, from
 // descriptors.
 type Platform struct {
-	OS           string `protobuf:"bytes,1,opt,name=os,proto3" json:"os,omitempty"`
-	Architecture string `protobuf:"bytes,2,opt,name=architecture,proto3" json:"architecture,omitempty"`
-	Variant      string `protobuf:"bytes,3,opt,name=variant,proto3" json:"variant,omitempty"`
+	OS                   string   `protobuf:"bytes,1,opt,name=os,proto3" json:"os,omitempty"`
+	Architecture         string   `protobuf:"bytes,2,opt,name=architecture,proto3" json:"architecture,omitempty"`
+	Variant              string   `protobuf:"bytes,3,opt,name=variant,proto3" json:"variant,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *Platform) Reset()                    { *m = Platform{} }
 func (*Platform) ProtoMessage()               {}
 func (*Platform) Descriptor() ([]byte, []int) { return fileDescriptorPlatform, []int{0} }
+func (dst *Platform) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Platform.Merge(dst, src)
+}
+func (m *Platform) XXX_Size() int {
+	return xxx_messageInfo_Platform.Size(m)
+}
+func (m *Platform) XXX_DiscardUnknown() {
+	xxx_messageInfo_Platform.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Platform proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*Platform)(nil), "containerd.types.Platform")
@@ -67,6 +81,11 @@ func (m *Platform) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintPlatform(dAtA, i, uint64(len(m.Variant)))
 		i += copy(dAtA[i:], m.Variant)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -94,6 +113,11 @@ func (m *Platform) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovPlatform(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -118,6 +142,7 @@ func (this *Platform) String() string {
 		`OS:` + fmt.Sprintf("%v", this.OS) + `,`,
 		`Architecture:` + fmt.Sprintf("%v", this.Architecture) + `,`,
 		`Variant:` + fmt.Sprintf("%v", this.Variant) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -258,6 +283,7 @@ func (m *Platform) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

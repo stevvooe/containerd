@@ -45,24 +45,52 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
 type ApplyRequest struct {
 	// Diff is the descriptor of the diff to be extracted
-	Diff   *containerd_types1.Descriptor `protobuf:"bytes,1,opt,name=diff" json:"diff,omitempty"`
-	Mounts []*containerd_types.Mount     `protobuf:"bytes,2,rep,name=mounts" json:"mounts,omitempty"`
+	Diff                 *containerd_types1.Descriptor `protobuf:"bytes,1,opt,name=diff" json:"diff,omitempty"`
+	Mounts               []*containerd_types.Mount     `protobuf:"bytes,2,rep,name=mounts" json:"mounts,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                      `json:"-"`
+	XXX_unrecognized     []byte                        `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                         `json:"-"`
 }
 
 func (m *ApplyRequest) Reset()                    { *m = ApplyRequest{} }
 func (*ApplyRequest) ProtoMessage()               {}
 func (*ApplyRequest) Descriptor() ([]byte, []int) { return fileDescriptorDiff, []int{0} }
+func (dst *ApplyRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplyRequest.Merge(dst, src)
+}
+func (m *ApplyRequest) XXX_Size() int {
+	return xxx_messageInfo_ApplyRequest.Size(m)
+}
+func (m *ApplyRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplyRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplyRequest proto.InternalMessageInfo
 
 type ApplyResponse struct {
 	// Applied is the descriptor for the object which was applied.
 	// If the input was a compressed blob then the result will be
 	// the descriptor for the uncompressed blob.
-	Applied *containerd_types1.Descriptor `protobuf:"bytes,1,opt,name=applied" json:"applied,omitempty"`
+	Applied              *containerd_types1.Descriptor `protobuf:"bytes,1,opt,name=applied" json:"applied,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                      `json:"-"`
+	XXX_unrecognized     []byte                        `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                         `json:"-"`
 }
 
 func (m *ApplyResponse) Reset()                    { *m = ApplyResponse{} }
 func (*ApplyResponse) ProtoMessage()               {}
 func (*ApplyResponse) Descriptor() ([]byte, []int) { return fileDescriptorDiff, []int{1} }
+func (dst *ApplyResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplyResponse.Merge(dst, src)
+}
+func (m *ApplyResponse) XXX_Size() int {
+	return xxx_messageInfo_ApplyResponse.Size(m)
+}
+func (m *ApplyResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplyResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplyResponse proto.InternalMessageInfo
 
 type DiffRequest struct {
 	// Left are the mounts which represent the older copy
@@ -79,26 +107,55 @@ type DiffRequest struct {
 	Ref string `protobuf:"bytes,4,opt,name=ref,proto3" json:"ref,omitempty"`
 	// Labels are the labels to apply to the generated content
 	// on content store commit.
-	Labels map[string]string `protobuf:"bytes,5,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Labels               map[string]string `protobuf:"bytes,5,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *DiffRequest) Reset()                    { *m = DiffRequest{} }
 func (*DiffRequest) ProtoMessage()               {}
 func (*DiffRequest) Descriptor() ([]byte, []int) { return fileDescriptorDiff, []int{2} }
+func (dst *DiffRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DiffRequest.Merge(dst, src)
+}
+func (m *DiffRequest) XXX_Size() int {
+	return xxx_messageInfo_DiffRequest.Size(m)
+}
+func (m *DiffRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_DiffRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DiffRequest proto.InternalMessageInfo
 
 type DiffResponse struct {
 	// Diff is the descriptor of the diff which can be applied
-	Diff *containerd_types1.Descriptor `protobuf:"bytes,3,opt,name=diff" json:"diff,omitempty"`
+	Diff                 *containerd_types1.Descriptor `protobuf:"bytes,3,opt,name=diff" json:"diff,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                      `json:"-"`
+	XXX_unrecognized     []byte                        `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                         `json:"-"`
 }
 
 func (m *DiffResponse) Reset()                    { *m = DiffResponse{} }
 func (*DiffResponse) ProtoMessage()               {}
 func (*DiffResponse) Descriptor() ([]byte, []int) { return fileDescriptorDiff, []int{3} }
+func (dst *DiffResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DiffResponse.Merge(dst, src)
+}
+func (m *DiffResponse) XXX_Size() int {
+	return xxx_messageInfo_DiffResponse.Size(m)
+}
+func (m *DiffResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_DiffResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DiffResponse proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*ApplyRequest)(nil), "containerd.services.diff.v1.ApplyRequest")
 	proto.RegisterType((*ApplyResponse)(nil), "containerd.services.diff.v1.ApplyResponse")
 	proto.RegisterType((*DiffRequest)(nil), "containerd.services.diff.v1.DiffRequest")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.diff.v1.DiffRequest.LabelsEntry")
 	proto.RegisterType((*DiffResponse)(nil), "containerd.services.diff.v1.DiffResponse")
 }
 
@@ -254,6 +311,11 @@ func (m *ApplyRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += n
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -281,6 +343,11 @@ func (m *ApplyResponse) MarshalTo(dAtA []byte) (int, error) {
 			return 0, err
 		}
 		i += n2
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -353,6 +420,11 @@ func (m *DiffRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -381,6 +453,11 @@ func (m *DiffResponse) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n3
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -406,6 +483,11 @@ func (m *ApplyRequest) Size() (n int) {
 			n += 1 + l + sovDiff(uint64(l))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -415,6 +497,11 @@ func (m *ApplyResponse) Size() (n int) {
 	if m.Applied != nil {
 		l = m.Applied.Size()
 		n += 1 + l + sovDiff(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -450,6 +537,11 @@ func (m *DiffRequest) Size() (n int) {
 			n += mapEntrySize + 1 + sovDiff(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -459,6 +551,11 @@ func (m *DiffResponse) Size() (n int) {
 	if m.Diff != nil {
 		l = m.Diff.Size()
 		n += 1 + l + sovDiff(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -483,6 +580,7 @@ func (this *ApplyRequest) String() string {
 	s := strings.Join([]string{`&ApplyRequest{`,
 		`Diff:` + strings.Replace(fmt.Sprintf("%v", this.Diff), "Descriptor", "containerd_types1.Descriptor", 1) + `,`,
 		`Mounts:` + strings.Replace(fmt.Sprintf("%v", this.Mounts), "Mount", "containerd_types.Mount", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -493,6 +591,7 @@ func (this *ApplyResponse) String() string {
 	}
 	s := strings.Join([]string{`&ApplyResponse{`,
 		`Applied:` + strings.Replace(fmt.Sprintf("%v", this.Applied), "Descriptor", "containerd_types1.Descriptor", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -517,6 +616,7 @@ func (this *DiffRequest) String() string {
 		`MediaType:` + fmt.Sprintf("%v", this.MediaType) + `,`,
 		`Ref:` + fmt.Sprintf("%v", this.Ref) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -527,6 +627,7 @@ func (this *DiffResponse) String() string {
 	}
 	s := strings.Join([]string{`&DiffResponse{`,
 		`Diff:` + strings.Replace(fmt.Sprintf("%v", this.Diff), "Descriptor", "containerd_types1.Descriptor", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -644,6 +745,7 @@ func (m *ApplyRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -727,6 +829,7 @@ func (m *ApplyResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1015,6 +1118,7 @@ func (m *DiffRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1098,6 +1202,7 @@ func (m *DiffResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

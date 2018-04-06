@@ -39,13 +39,27 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
 type VersionResponse struct {
-	Version  string `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
-	Revision string `protobuf:"bytes,2,opt,name=revision,proto3" json:"revision,omitempty"`
+	Version              string   `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
+	Revision             string   `protobuf:"bytes,2,opt,name=revision,proto3" json:"revision,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *VersionResponse) Reset()                    { *m = VersionResponse{} }
 func (*VersionResponse) ProtoMessage()               {}
 func (*VersionResponse) Descriptor() ([]byte, []int) { return fileDescriptorVersion, []int{0} }
+func (dst *VersionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VersionResponse.Merge(dst, src)
+}
+func (m *VersionResponse) XXX_Size() int {
+	return xxx_messageInfo_VersionResponse.Size(m)
+}
+func (m *VersionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_VersionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VersionResponse proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*VersionResponse)(nil), "containerd.services.version.v1.VersionResponse")
@@ -150,6 +164,11 @@ func (m *VersionResponse) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintVersion(dAtA, i, uint64(len(m.Revision)))
 		i += copy(dAtA[i:], m.Revision)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -172,6 +191,11 @@ func (m *VersionResponse) Size() (n int) {
 	l = len(m.Revision)
 	if l > 0 {
 		n += 1 + l + sovVersion(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -196,6 +220,7 @@ func (this *VersionResponse) String() string {
 	s := strings.Join([]string{`&VersionResponse{`,
 		`Version:` + fmt.Sprintf("%v", this.Version) + `,`,
 		`Revision:` + fmt.Sprintf("%v", this.Revision) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -307,6 +332,7 @@ func (m *VersionResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

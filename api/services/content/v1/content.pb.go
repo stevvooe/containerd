@@ -116,28 +116,70 @@ type Info struct {
 	// Labels are arbitrary data on snapshots.
 	//
 	// The combined size of a key/value pair cannot exceed 4096 bytes.
-	Labels map[string]string `protobuf:"bytes,5,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Labels               map[string]string `protobuf:"bytes,5,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *Info) Reset()                    { *m = Info{} }
 func (*Info) ProtoMessage()               {}
 func (*Info) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{0} }
+func (dst *Info) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Info.Merge(dst, src)
+}
+func (m *Info) XXX_Size() int {
+	return xxx_messageInfo_Info.Size(m)
+}
+func (m *Info) XXX_DiscardUnknown() {
+	xxx_messageInfo_Info.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Info proto.InternalMessageInfo
 
 type InfoRequest struct {
-	Digest github_com_opencontainers_go_digest.Digest `protobuf:"bytes,1,opt,name=digest,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"digest"`
+	Digest               github_com_opencontainers_go_digest.Digest `protobuf:"bytes,1,opt,name=digest,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"digest"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
 }
 
 func (m *InfoRequest) Reset()                    { *m = InfoRequest{} }
 func (*InfoRequest) ProtoMessage()               {}
 func (*InfoRequest) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{1} }
+func (dst *InfoRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InfoRequest.Merge(dst, src)
+}
+func (m *InfoRequest) XXX_Size() int {
+	return xxx_messageInfo_InfoRequest.Size(m)
+}
+func (m *InfoRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_InfoRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InfoRequest proto.InternalMessageInfo
 
 type InfoResponse struct {
-	Info Info `protobuf:"bytes,1,opt,name=info" json:"info"`
+	Info                 Info     `protobuf:"bytes,1,opt,name=info" json:"info"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *InfoResponse) Reset()                    { *m = InfoResponse{} }
 func (*InfoResponse) ProtoMessage()               {}
 func (*InfoResponse) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{2} }
+func (dst *InfoResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InfoResponse.Merge(dst, src)
+}
+func (m *InfoResponse) XXX_Size() int {
+	return xxx_messageInfo_InfoResponse.Size(m)
+}
+func (m *InfoResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_InfoResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InfoResponse proto.InternalMessageInfo
 
 type UpdateRequest struct {
 	Info Info `protobuf:"bytes,1,opt,name=info" json:"info"`
@@ -147,20 +189,48 @@ type UpdateRequest struct {
 	// In info, Digest, Size, and CreatedAt are immutable,
 	// other field may be updated using this mask.
 	// If no mask is provided, all mutable field are updated.
-	UpdateMask *google_protobuf1.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	UpdateMask           *google_protobuf1.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
 }
 
 func (m *UpdateRequest) Reset()                    { *m = UpdateRequest{} }
 func (*UpdateRequest) ProtoMessage()               {}
 func (*UpdateRequest) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{3} }
+func (dst *UpdateRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateRequest.Merge(dst, src)
+}
+func (m *UpdateRequest) XXX_Size() int {
+	return xxx_messageInfo_UpdateRequest.Size(m)
+}
+func (m *UpdateRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateRequest proto.InternalMessageInfo
 
 type UpdateResponse struct {
-	Info Info `protobuf:"bytes,1,opt,name=info" json:"info"`
+	Info                 Info     `protobuf:"bytes,1,opt,name=info" json:"info"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *UpdateResponse) Reset()                    { *m = UpdateResponse{} }
 func (*UpdateResponse) ProtoMessage()               {}
 func (*UpdateResponse) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{4} }
+func (dst *UpdateResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateResponse.Merge(dst, src)
+}
+func (m *UpdateResponse) XXX_Size() int {
+	return xxx_messageInfo_UpdateResponse.Size(m)
+}
+func (m *UpdateResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateResponse proto.InternalMessageInfo
 
 type ListContentRequest struct {
 	// Filters contains one or more filters using the syntax defined in the
@@ -173,29 +243,71 @@ type ListContentRequest struct {
 	//   filters[0] or filters[1] or ... or filters[n-1] or filters[n]
 	//
 	// If filters is zero-length or nil, all items will be returned.
-	Filters []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	Filters              []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListContentRequest) Reset()                    { *m = ListContentRequest{} }
 func (*ListContentRequest) ProtoMessage()               {}
 func (*ListContentRequest) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{5} }
+func (dst *ListContentRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListContentRequest.Merge(dst, src)
+}
+func (m *ListContentRequest) XXX_Size() int {
+	return xxx_messageInfo_ListContentRequest.Size(m)
+}
+func (m *ListContentRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListContentRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListContentRequest proto.InternalMessageInfo
 
 type ListContentResponse struct {
-	Info []Info `protobuf:"bytes,1,rep,name=info" json:"info"`
+	Info                 []Info   `protobuf:"bytes,1,rep,name=info" json:"info"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListContentResponse) Reset()                    { *m = ListContentResponse{} }
 func (*ListContentResponse) ProtoMessage()               {}
 func (*ListContentResponse) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{6} }
+func (dst *ListContentResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListContentResponse.Merge(dst, src)
+}
+func (m *ListContentResponse) XXX_Size() int {
+	return xxx_messageInfo_ListContentResponse.Size(m)
+}
+func (m *ListContentResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListContentResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListContentResponse proto.InternalMessageInfo
 
 type DeleteContentRequest struct {
 	// Digest specifies which content to delete.
-	Digest github_com_opencontainers_go_digest.Digest `protobuf:"bytes,1,opt,name=digest,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"digest"`
+	Digest               github_com_opencontainers_go_digest.Digest `protobuf:"bytes,1,opt,name=digest,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"digest"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
 }
 
 func (m *DeleteContentRequest) Reset()                    { *m = DeleteContentRequest{} }
 func (*DeleteContentRequest) ProtoMessage()               {}
 func (*DeleteContentRequest) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{7} }
+func (dst *DeleteContentRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteContentRequest.Merge(dst, src)
+}
+func (m *DeleteContentRequest) XXX_Size() int {
+	return xxx_messageInfo_DeleteContentRequest.Size(m)
+}
+func (m *DeleteContentRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteContentRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteContentRequest proto.InternalMessageInfo
 
 // ReadContentRequest defines the fields that make up a request to read a portion of
 // data from a stored object.
@@ -208,67 +320,165 @@ type ReadContentRequest struct {
 	Offset int64 `protobuf:"varint,2,opt,name=offset,proto3" json:"offset,omitempty"`
 	// size is the total size of the read. If zero, the entire blob will be
 	// returned by the service.
-	Size_ int64 `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
+	Size_                int64    `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ReadContentRequest) Reset()                    { *m = ReadContentRequest{} }
 func (*ReadContentRequest) ProtoMessage()               {}
 func (*ReadContentRequest) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{8} }
+func (dst *ReadContentRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadContentRequest.Merge(dst, src)
+}
+func (m *ReadContentRequest) XXX_Size() int {
+	return xxx_messageInfo_ReadContentRequest.Size(m)
+}
+func (m *ReadContentRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadContentRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadContentRequest proto.InternalMessageInfo
 
 // ReadContentResponse carries byte data for a read request.
 type ReadContentResponse struct {
-	Offset int64  `protobuf:"varint,1,opt,name=offset,proto3" json:"offset,omitempty"`
-	Data   []byte `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	Offset               int64    `protobuf:"varint,1,opt,name=offset,proto3" json:"offset,omitempty"`
+	Data                 []byte   `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ReadContentResponse) Reset()                    { *m = ReadContentResponse{} }
 func (*ReadContentResponse) ProtoMessage()               {}
 func (*ReadContentResponse) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{9} }
+func (dst *ReadContentResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadContentResponse.Merge(dst, src)
+}
+func (m *ReadContentResponse) XXX_Size() int {
+	return xxx_messageInfo_ReadContentResponse.Size(m)
+}
+func (m *ReadContentResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadContentResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadContentResponse proto.InternalMessageInfo
 
 type Status struct {
-	StartedAt time.Time                                  `protobuf:"bytes,1,opt,name=started_at,json=startedAt,stdtime" json:"started_at"`
-	UpdatedAt time.Time                                  `protobuf:"bytes,2,opt,name=updated_at,json=updatedAt,stdtime" json:"updated_at"`
-	Ref       string                                     `protobuf:"bytes,3,opt,name=ref,proto3" json:"ref,omitempty"`
-	Offset    int64                                      `protobuf:"varint,4,opt,name=offset,proto3" json:"offset,omitempty"`
-	Total     int64                                      `protobuf:"varint,5,opt,name=total,proto3" json:"total,omitempty"`
-	Expected  github_com_opencontainers_go_digest.Digest `protobuf:"bytes,6,opt,name=expected,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"expected"`
+	StartedAt            time.Time                                  `protobuf:"bytes,1,opt,name=started_at,json=startedAt,stdtime" json:"started_at"`
+	UpdatedAt            time.Time                                  `protobuf:"bytes,2,opt,name=updated_at,json=updatedAt,stdtime" json:"updated_at"`
+	Ref                  string                                     `protobuf:"bytes,3,opt,name=ref,proto3" json:"ref,omitempty"`
+	Offset               int64                                      `protobuf:"varint,4,opt,name=offset,proto3" json:"offset,omitempty"`
+	Total                int64                                      `protobuf:"varint,5,opt,name=total,proto3" json:"total,omitempty"`
+	Expected             github_com_opencontainers_go_digest.Digest `protobuf:"bytes,6,opt,name=expected,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"expected"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
 }
 
 func (m *Status) Reset()                    { *m = Status{} }
 func (*Status) ProtoMessage()               {}
 func (*Status) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{10} }
+func (dst *Status) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Status.Merge(dst, src)
+}
+func (m *Status) XXX_Size() int {
+	return xxx_messageInfo_Status.Size(m)
+}
+func (m *Status) XXX_DiscardUnknown() {
+	xxx_messageInfo_Status.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Status proto.InternalMessageInfo
 
 type StatusRequest struct {
-	Ref string `protobuf:"bytes,1,opt,name=ref,proto3" json:"ref,omitempty"`
+	Ref                  string   `protobuf:"bytes,1,opt,name=ref,proto3" json:"ref,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *StatusRequest) Reset()                    { *m = StatusRequest{} }
 func (*StatusRequest) ProtoMessage()               {}
 func (*StatusRequest) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{11} }
+func (dst *StatusRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StatusRequest.Merge(dst, src)
+}
+func (m *StatusRequest) XXX_Size() int {
+	return xxx_messageInfo_StatusRequest.Size(m)
+}
+func (m *StatusRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_StatusRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StatusRequest proto.InternalMessageInfo
 
 type StatusResponse struct {
-	Status *Status `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	Status               *Status  `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *StatusResponse) Reset()                    { *m = StatusResponse{} }
 func (*StatusResponse) ProtoMessage()               {}
 func (*StatusResponse) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{12} }
+func (dst *StatusResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StatusResponse.Merge(dst, src)
+}
+func (m *StatusResponse) XXX_Size() int {
+	return xxx_messageInfo_StatusResponse.Size(m)
+}
+func (m *StatusResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_StatusResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StatusResponse proto.InternalMessageInfo
 
 type ListStatusesRequest struct {
-	Filters []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	Filters              []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListStatusesRequest) Reset()                    { *m = ListStatusesRequest{} }
 func (*ListStatusesRequest) ProtoMessage()               {}
 func (*ListStatusesRequest) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{13} }
+func (dst *ListStatusesRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListStatusesRequest.Merge(dst, src)
+}
+func (m *ListStatusesRequest) XXX_Size() int {
+	return xxx_messageInfo_ListStatusesRequest.Size(m)
+}
+func (m *ListStatusesRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListStatusesRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListStatusesRequest proto.InternalMessageInfo
 
 type ListStatusesResponse struct {
-	Statuses []Status `protobuf:"bytes,1,rep,name=statuses" json:"statuses"`
+	Statuses             []Status `protobuf:"bytes,1,rep,name=statuses" json:"statuses"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListStatusesResponse) Reset()                    { *m = ListStatusesResponse{} }
 func (*ListStatusesResponse) ProtoMessage()               {}
 func (*ListStatusesResponse) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{14} }
+func (dst *ListStatusesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListStatusesResponse.Merge(dst, src)
+}
+func (m *ListStatusesResponse) XXX_Size() int {
+	return xxx_messageInfo_ListStatusesResponse.Size(m)
+}
+func (m *ListStatusesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListStatusesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListStatusesResponse proto.InternalMessageInfo
 
 // WriteContentRequest writes data to the request ref at offset.
 type WriteContentRequest struct {
@@ -324,12 +534,26 @@ type WriteContentRequest struct {
 	// Labels are arbitrary data on snapshots.
 	//
 	// The combined size of a key/value pair cannot exceed 4096 bytes.
-	Labels map[string]string `protobuf:"bytes,7,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Labels               map[string]string `protobuf:"bytes,7,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *WriteContentRequest) Reset()                    { *m = WriteContentRequest{} }
 func (*WriteContentRequest) ProtoMessage()               {}
 func (*WriteContentRequest) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{15} }
+func (dst *WriteContentRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteContentRequest.Merge(dst, src)
+}
+func (m *WriteContentRequest) XXX_Size() int {
+	return xxx_messageInfo_WriteContentRequest.Size(m)
+}
+func (m *WriteContentRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteContentRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteContentRequest proto.InternalMessageInfo
 
 // WriteContentResponse is returned on the culmination of a write call.
 type WriteContentResponse struct {
@@ -358,23 +582,52 @@ type WriteContentResponse struct {
 	// Digest, if present, includes the digest up to the currently committed
 	// bytes. If action is commit, this field will be set. It is implementation
 	// defined if this is set for other actions.
-	Digest github_com_opencontainers_go_digest.Digest `protobuf:"bytes,6,opt,name=digest,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"digest"`
+	Digest               github_com_opencontainers_go_digest.Digest `protobuf:"bytes,6,opt,name=digest,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"digest"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
 }
 
 func (m *WriteContentResponse) Reset()                    { *m = WriteContentResponse{} }
 func (*WriteContentResponse) ProtoMessage()               {}
 func (*WriteContentResponse) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{16} }
+func (dst *WriteContentResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteContentResponse.Merge(dst, src)
+}
+func (m *WriteContentResponse) XXX_Size() int {
+	return xxx_messageInfo_WriteContentResponse.Size(m)
+}
+func (m *WriteContentResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteContentResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteContentResponse proto.InternalMessageInfo
 
 type AbortRequest struct {
-	Ref string `protobuf:"bytes,1,opt,name=ref,proto3" json:"ref,omitempty"`
+	Ref                  string   `protobuf:"bytes,1,opt,name=ref,proto3" json:"ref,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *AbortRequest) Reset()                    { *m = AbortRequest{} }
 func (*AbortRequest) ProtoMessage()               {}
 func (*AbortRequest) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{17} }
+func (dst *AbortRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AbortRequest.Merge(dst, src)
+}
+func (m *AbortRequest) XXX_Size() int {
+	return xxx_messageInfo_AbortRequest.Size(m)
+}
+func (m *AbortRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_AbortRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AbortRequest proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*Info)(nil), "containerd.services.content.v1.Info")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.content.v1.Info.LabelsEntry")
 	proto.RegisterType((*InfoRequest)(nil), "containerd.services.content.v1.InfoRequest")
 	proto.RegisterType((*InfoResponse)(nil), "containerd.services.content.v1.InfoResponse")
 	proto.RegisterType((*UpdateRequest)(nil), "containerd.services.content.v1.UpdateRequest")
@@ -390,6 +643,7 @@ func init() {
 	proto.RegisterType((*ListStatusesRequest)(nil), "containerd.services.content.v1.ListStatusesRequest")
 	proto.RegisterType((*ListStatusesResponse)(nil), "containerd.services.content.v1.ListStatusesResponse")
 	proto.RegisterType((*WriteContentRequest)(nil), "containerd.services.content.v1.WriteContentRequest")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.content.v1.WriteContentRequest.LabelsEntry")
 	proto.RegisterType((*WriteContentResponse)(nil), "containerd.services.content.v1.WriteContentResponse")
 	proto.RegisterType((*AbortRequest)(nil), "containerd.services.content.v1.AbortRequest")
 	proto.RegisterEnum("containerd.services.content.v1.WriteAction", WriteAction_name, WriteAction_value)
@@ -965,6 +1219,11 @@ func (m *Info) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -988,6 +1247,11 @@ func (m *InfoRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintContent(dAtA, i, uint64(len(m.Digest)))
 		i += copy(dAtA[i:], m.Digest)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -1015,6 +1279,11 @@ func (m *InfoResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n3
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1051,6 +1320,11 @@ func (m *UpdateRequest) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n5
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1077,6 +1351,11 @@ func (m *UpdateResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n6
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1110,6 +1389,11 @@ func (m *ListContentRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], s)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1140,6 +1424,11 @@ func (m *ListContentResponse) MarshalTo(dAtA []byte) (int, error) {
 			i += n
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1163,6 +1452,11 @@ func (m *DeleteContentRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintContent(dAtA, i, uint64(len(m.Digest)))
 		i += copy(dAtA[i:], m.Digest)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -1198,6 +1492,11 @@ func (m *ReadContentRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintContent(dAtA, i, uint64(m.Size_))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1226,6 +1525,11 @@ func (m *ReadContentResponse) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintContent(dAtA, i, uint64(len(m.Data)))
 		i += copy(dAtA[i:], m.Data)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -1283,6 +1587,11 @@ func (m *Status) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintContent(dAtA, i, uint64(len(m.Expected)))
 		i += copy(dAtA[i:], m.Expected)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1306,6 +1615,11 @@ func (m *StatusRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintContent(dAtA, i, uint64(len(m.Ref)))
 		i += copy(dAtA[i:], m.Ref)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -1334,6 +1648,11 @@ func (m *StatusResponse) MarshalTo(dAtA []byte) (int, error) {
 			return 0, err
 		}
 		i += n9
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -1368,6 +1687,11 @@ func (m *ListStatusesRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], s)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1396,6 +1720,11 @@ func (m *ListStatusesResponse) MarshalTo(dAtA []byte) (int, error) {
 				return 0, err
 			}
 			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
 		}
 	}
 	return i, nil
@@ -1466,6 +1795,11 @@ func (m *WriteContentRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1521,6 +1855,11 @@ func (m *WriteContentResponse) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintContent(dAtA, i, uint64(len(m.Digest)))
 		i += copy(dAtA[i:], m.Digest)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1544,6 +1883,11 @@ func (m *AbortRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintContent(dAtA, i, uint64(len(m.Ref)))
 		i += copy(dAtA[i:], m.Ref)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -1579,6 +1923,11 @@ func (m *Info) Size() (n int) {
 			n += mapEntrySize + 1 + sovContent(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1589,6 +1938,11 @@ func (m *InfoRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovContent(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1597,6 +1951,11 @@ func (m *InfoResponse) Size() (n int) {
 	_ = l
 	l = m.Info.Size()
 	n += 1 + l + sovContent(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1609,6 +1968,11 @@ func (m *UpdateRequest) Size() (n int) {
 		l = m.UpdateMask.Size()
 		n += 1 + l + sovContent(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1617,6 +1981,11 @@ func (m *UpdateResponse) Size() (n int) {
 	_ = l
 	l = m.Info.Size()
 	n += 1 + l + sovContent(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1627,6 +1996,11 @@ func (m *ListContentRequest) Size() (n int) {
 		for _, s := range m.Filters {
 			l = len(s)
 			n += 1 + l + sovContent(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
 		}
 	}
 	return n
@@ -1641,6 +2015,11 @@ func (m *ListContentResponse) Size() (n int) {
 			n += 1 + l + sovContent(uint64(l))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1650,6 +2029,11 @@ func (m *DeleteContentRequest) Size() (n int) {
 	l = len(m.Digest)
 	if l > 0 {
 		n += 1 + l + sovContent(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -1667,6 +2051,11 @@ func (m *ReadContentRequest) Size() (n int) {
 	if m.Size_ != 0 {
 		n += 1 + sovContent(uint64(m.Size_))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1679,6 +2068,11 @@ func (m *ReadContentResponse) Size() (n int) {
 	l = len(m.Data)
 	if l > 0 {
 		n += 1 + l + sovContent(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -1704,6 +2098,11 @@ func (m *Status) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovContent(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1714,6 +2113,11 @@ func (m *StatusRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovContent(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1723,6 +2127,11 @@ func (m *StatusResponse) Size() (n int) {
 	if m.Status != nil {
 		l = m.Status.Size()
 		n += 1 + l + sovContent(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -1736,6 +2145,11 @@ func (m *ListStatusesRequest) Size() (n int) {
 			n += 1 + l + sovContent(uint64(l))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1746,6 +2160,11 @@ func (m *ListStatusesResponse) Size() (n int) {
 		for _, e := range m.Statuses {
 			l = e.Size()
 			n += 1 + l + sovContent(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
 		}
 	}
 	return n
@@ -1783,6 +2202,11 @@ func (m *WriteContentRequest) Size() (n int) {
 			n += mapEntrySize + 1 + sovContent(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1806,6 +2230,11 @@ func (m *WriteContentResponse) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovContent(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1815,6 +2244,11 @@ func (m *AbortRequest) Size() (n int) {
 	l = len(m.Ref)
 	if l > 0 {
 		n += 1 + l + sovContent(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -1852,6 +2286,7 @@ func (this *Info) String() string {
 		`CreatedAt:` + strings.Replace(strings.Replace(this.CreatedAt.String(), "Timestamp", "google_protobuf2.Timestamp", 1), `&`, ``, 1) + `,`,
 		`UpdatedAt:` + strings.Replace(strings.Replace(this.UpdatedAt.String(), "Timestamp", "google_protobuf2.Timestamp", 1), `&`, ``, 1) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1862,6 +2297,7 @@ func (this *InfoRequest) String() string {
 	}
 	s := strings.Join([]string{`&InfoRequest{`,
 		`Digest:` + fmt.Sprintf("%v", this.Digest) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1872,6 +2308,7 @@ func (this *InfoResponse) String() string {
 	}
 	s := strings.Join([]string{`&InfoResponse{`,
 		`Info:` + strings.Replace(strings.Replace(this.Info.String(), "Info", "Info", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1883,6 +2320,7 @@ func (this *UpdateRequest) String() string {
 	s := strings.Join([]string{`&UpdateRequest{`,
 		`Info:` + strings.Replace(strings.Replace(this.Info.String(), "Info", "Info", 1), `&`, ``, 1) + `,`,
 		`UpdateMask:` + strings.Replace(fmt.Sprintf("%v", this.UpdateMask), "FieldMask", "google_protobuf1.FieldMask", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1893,6 +2331,7 @@ func (this *UpdateResponse) String() string {
 	}
 	s := strings.Join([]string{`&UpdateResponse{`,
 		`Info:` + strings.Replace(strings.Replace(this.Info.String(), "Info", "Info", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1903,6 +2342,7 @@ func (this *ListContentRequest) String() string {
 	}
 	s := strings.Join([]string{`&ListContentRequest{`,
 		`Filters:` + fmt.Sprintf("%v", this.Filters) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1913,6 +2353,7 @@ func (this *ListContentResponse) String() string {
 	}
 	s := strings.Join([]string{`&ListContentResponse{`,
 		`Info:` + strings.Replace(strings.Replace(fmt.Sprintf("%v", this.Info), "Info", "Info", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1923,6 +2364,7 @@ func (this *DeleteContentRequest) String() string {
 	}
 	s := strings.Join([]string{`&DeleteContentRequest{`,
 		`Digest:` + fmt.Sprintf("%v", this.Digest) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1935,6 +2377,7 @@ func (this *ReadContentRequest) String() string {
 		`Digest:` + fmt.Sprintf("%v", this.Digest) + `,`,
 		`Offset:` + fmt.Sprintf("%v", this.Offset) + `,`,
 		`Size_:` + fmt.Sprintf("%v", this.Size_) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1946,6 +2389,7 @@ func (this *ReadContentResponse) String() string {
 	s := strings.Join([]string{`&ReadContentResponse{`,
 		`Offset:` + fmt.Sprintf("%v", this.Offset) + `,`,
 		`Data:` + fmt.Sprintf("%v", this.Data) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1961,6 +2405,7 @@ func (this *Status) String() string {
 		`Offset:` + fmt.Sprintf("%v", this.Offset) + `,`,
 		`Total:` + fmt.Sprintf("%v", this.Total) + `,`,
 		`Expected:` + fmt.Sprintf("%v", this.Expected) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1971,6 +2416,7 @@ func (this *StatusRequest) String() string {
 	}
 	s := strings.Join([]string{`&StatusRequest{`,
 		`Ref:` + fmt.Sprintf("%v", this.Ref) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1981,6 +2427,7 @@ func (this *StatusResponse) String() string {
 	}
 	s := strings.Join([]string{`&StatusResponse{`,
 		`Status:` + strings.Replace(fmt.Sprintf("%v", this.Status), "Status", "Status", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1991,6 +2438,7 @@ func (this *ListStatusesRequest) String() string {
 	}
 	s := strings.Join([]string{`&ListStatusesRequest{`,
 		`Filters:` + fmt.Sprintf("%v", this.Filters) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -2001,6 +2449,7 @@ func (this *ListStatusesResponse) String() string {
 	}
 	s := strings.Join([]string{`&ListStatusesResponse{`,
 		`Statuses:` + strings.Replace(strings.Replace(fmt.Sprintf("%v", this.Statuses), "Status", "Status", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -2027,6 +2476,7 @@ func (this *WriteContentRequest) String() string {
 		`Offset:` + fmt.Sprintf("%v", this.Offset) + `,`,
 		`Data:` + fmt.Sprintf("%v", this.Data) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -2042,6 +2492,7 @@ func (this *WriteContentResponse) String() string {
 		`Offset:` + fmt.Sprintf("%v", this.Offset) + `,`,
 		`Total:` + fmt.Sprintf("%v", this.Total) + `,`,
 		`Digest:` + fmt.Sprintf("%v", this.Digest) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -2052,6 +2503,7 @@ func (this *AbortRequest) String() string {
 	}
 	s := strings.Join([]string{`&AbortRequest{`,
 		`Ref:` + fmt.Sprintf("%v", this.Ref) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -2331,6 +2783,7 @@ func (m *Info) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2410,6 +2863,7 @@ func (m *InfoRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2490,6 +2944,7 @@ func (m *InfoResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2603,6 +3058,7 @@ func (m *UpdateRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2683,6 +3139,7 @@ func (m *UpdateResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2762,6 +3219,7 @@ func (m *ListContentRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2843,6 +3301,7 @@ func (m *ListContentResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2922,6 +3381,7 @@ func (m *DeleteContentRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3039,6 +3499,7 @@ func (m *ReadContentRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3139,6 +3600,7 @@ func (m *ReadContentResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3345,6 +3807,7 @@ func (m *Status) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3424,6 +3887,7 @@ func (m *StatusRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3507,6 +3971,7 @@ func (m *StatusResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3586,6 +4051,7 @@ func (m *ListStatusesRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3667,6 +4133,7 @@ func (m *ListStatusesResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3981,6 +4448,7 @@ func (m *WriteContentRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -4177,6 +4645,7 @@ func (m *WriteContentResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -4256,6 +4725,7 @@ func (m *AbortRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

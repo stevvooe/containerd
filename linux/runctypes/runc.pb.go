@@ -38,55 +38,111 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
 type RuncOptions struct {
-	Runtime       string `protobuf:"bytes,1,opt,name=runtime,proto3" json:"runtime,omitempty"`
-	RuntimeRoot   string `protobuf:"bytes,2,opt,name=runtime_root,json=runtimeRoot,proto3" json:"runtime_root,omitempty"`
-	CriuPath      string `protobuf:"bytes,3,opt,name=criu_path,json=criuPath,proto3" json:"criu_path,omitempty"`
-	SystemdCgroup bool   `protobuf:"varint,4,opt,name=systemd_cgroup,json=systemdCgroup,proto3" json:"systemd_cgroup,omitempty"`
+	Runtime              string   `protobuf:"bytes,1,opt,name=runtime,proto3" json:"runtime,omitempty"`
+	RuntimeRoot          string   `protobuf:"bytes,2,opt,name=runtime_root,json=runtimeRoot,proto3" json:"runtime_root,omitempty"`
+	CriuPath             string   `protobuf:"bytes,3,opt,name=criu_path,json=criuPath,proto3" json:"criu_path,omitempty"`
+	SystemdCgroup        bool     `protobuf:"varint,4,opt,name=systemd_cgroup,json=systemdCgroup,proto3" json:"systemd_cgroup,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *RuncOptions) Reset()                    { *m = RuncOptions{} }
 func (*RuncOptions) ProtoMessage()               {}
 func (*RuncOptions) Descriptor() ([]byte, []int) { return fileDescriptorRunc, []int{0} }
+func (dst *RuncOptions) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RuncOptions.Merge(dst, src)
+}
+func (m *RuncOptions) XXX_Size() int {
+	return xxx_messageInfo_RuncOptions.Size(m)
+}
+func (m *RuncOptions) XXX_DiscardUnknown() {
+	xxx_messageInfo_RuncOptions.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RuncOptions proto.InternalMessageInfo
 
 type CreateOptions struct {
-	NoPivotRoot         bool     `protobuf:"varint,1,opt,name=no_pivot_root,json=noPivotRoot,proto3" json:"no_pivot_root,omitempty"`
-	OpenTcp             bool     `protobuf:"varint,2,opt,name=open_tcp,json=openTcp,proto3" json:"open_tcp,omitempty"`
-	ExternalUnixSockets bool     `protobuf:"varint,3,opt,name=external_unix_sockets,json=externalUnixSockets,proto3" json:"external_unix_sockets,omitempty"`
-	Terminal            bool     `protobuf:"varint,4,opt,name=terminal,proto3" json:"terminal,omitempty"`
-	FileLocks           bool     `protobuf:"varint,5,opt,name=file_locks,json=fileLocks,proto3" json:"file_locks,omitempty"`
-	EmptyNamespaces     []string `protobuf:"bytes,6,rep,name=empty_namespaces,json=emptyNamespaces" json:"empty_namespaces,omitempty"`
-	CgroupsMode         string   `protobuf:"bytes,7,opt,name=cgroups_mode,json=cgroupsMode,proto3" json:"cgroups_mode,omitempty"`
-	NoNewKeyring        bool     `protobuf:"varint,8,opt,name=no_new_keyring,json=noNewKeyring,proto3" json:"no_new_keyring,omitempty"`
-	ShimCgroup          string   `protobuf:"bytes,9,opt,name=shim_cgroup,json=shimCgroup,proto3" json:"shim_cgroup,omitempty"`
-	IoUid               uint32   `protobuf:"varint,10,opt,name=io_uid,json=ioUid,proto3" json:"io_uid,omitempty"`
-	IoGid               uint32   `protobuf:"varint,11,opt,name=io_gid,json=ioGid,proto3" json:"io_gid,omitempty"`
+	NoPivotRoot          bool     `protobuf:"varint,1,opt,name=no_pivot_root,json=noPivotRoot,proto3" json:"no_pivot_root,omitempty"`
+	OpenTcp              bool     `protobuf:"varint,2,opt,name=open_tcp,json=openTcp,proto3" json:"open_tcp,omitempty"`
+	ExternalUnixSockets  bool     `protobuf:"varint,3,opt,name=external_unix_sockets,json=externalUnixSockets,proto3" json:"external_unix_sockets,omitempty"`
+	Terminal             bool     `protobuf:"varint,4,opt,name=terminal,proto3" json:"terminal,omitempty"`
+	FileLocks            bool     `protobuf:"varint,5,opt,name=file_locks,json=fileLocks,proto3" json:"file_locks,omitempty"`
+	EmptyNamespaces      []string `protobuf:"bytes,6,rep,name=empty_namespaces,json=emptyNamespaces" json:"empty_namespaces,omitempty"`
+	CgroupsMode          string   `protobuf:"bytes,7,opt,name=cgroups_mode,json=cgroupsMode,proto3" json:"cgroups_mode,omitempty"`
+	NoNewKeyring         bool     `protobuf:"varint,8,opt,name=no_new_keyring,json=noNewKeyring,proto3" json:"no_new_keyring,omitempty"`
+	ShimCgroup           string   `protobuf:"bytes,9,opt,name=shim_cgroup,json=shimCgroup,proto3" json:"shim_cgroup,omitempty"`
+	IoUid                uint32   `protobuf:"varint,10,opt,name=io_uid,json=ioUid,proto3" json:"io_uid,omitempty"`
+	IoGid                uint32   `protobuf:"varint,11,opt,name=io_gid,json=ioGid,proto3" json:"io_gid,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateOptions) Reset()                    { *m = CreateOptions{} }
 func (*CreateOptions) ProtoMessage()               {}
 func (*CreateOptions) Descriptor() ([]byte, []int) { return fileDescriptorRunc, []int{1} }
+func (dst *CreateOptions) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateOptions.Merge(dst, src)
+}
+func (m *CreateOptions) XXX_Size() int {
+	return xxx_messageInfo_CreateOptions.Size(m)
+}
+func (m *CreateOptions) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateOptions.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateOptions proto.InternalMessageInfo
 
 type CheckpointOptions struct {
-	Exit                bool     `protobuf:"varint,1,opt,name=exit,proto3" json:"exit,omitempty"`
-	OpenTcp             bool     `protobuf:"varint,2,opt,name=open_tcp,json=openTcp,proto3" json:"open_tcp,omitempty"`
-	ExternalUnixSockets bool     `protobuf:"varint,3,opt,name=external_unix_sockets,json=externalUnixSockets,proto3" json:"external_unix_sockets,omitempty"`
-	Terminal            bool     `protobuf:"varint,4,opt,name=terminal,proto3" json:"terminal,omitempty"`
-	FileLocks           bool     `protobuf:"varint,5,opt,name=file_locks,json=fileLocks,proto3" json:"file_locks,omitempty"`
-	EmptyNamespaces     []string `protobuf:"bytes,6,rep,name=empty_namespaces,json=emptyNamespaces" json:"empty_namespaces,omitempty"`
-	CgroupsMode         string   `protobuf:"bytes,7,opt,name=cgroups_mode,json=cgroupsMode,proto3" json:"cgroups_mode,omitempty"`
+	Exit                 bool     `protobuf:"varint,1,opt,name=exit,proto3" json:"exit,omitempty"`
+	OpenTcp              bool     `protobuf:"varint,2,opt,name=open_tcp,json=openTcp,proto3" json:"open_tcp,omitempty"`
+	ExternalUnixSockets  bool     `protobuf:"varint,3,opt,name=external_unix_sockets,json=externalUnixSockets,proto3" json:"external_unix_sockets,omitempty"`
+	Terminal             bool     `protobuf:"varint,4,opt,name=terminal,proto3" json:"terminal,omitempty"`
+	FileLocks            bool     `protobuf:"varint,5,opt,name=file_locks,json=fileLocks,proto3" json:"file_locks,omitempty"`
+	EmptyNamespaces      []string `protobuf:"bytes,6,rep,name=empty_namespaces,json=emptyNamespaces" json:"empty_namespaces,omitempty"`
+	CgroupsMode          string   `protobuf:"bytes,7,opt,name=cgroups_mode,json=cgroupsMode,proto3" json:"cgroups_mode,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CheckpointOptions) Reset()                    { *m = CheckpointOptions{} }
 func (*CheckpointOptions) ProtoMessage()               {}
 func (*CheckpointOptions) Descriptor() ([]byte, []int) { return fileDescriptorRunc, []int{2} }
+func (dst *CheckpointOptions) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CheckpointOptions.Merge(dst, src)
+}
+func (m *CheckpointOptions) XXX_Size() int {
+	return xxx_messageInfo_CheckpointOptions.Size(m)
+}
+func (m *CheckpointOptions) XXX_DiscardUnknown() {
+	xxx_messageInfo_CheckpointOptions.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CheckpointOptions proto.InternalMessageInfo
 
 type ProcessDetails struct {
-	ExecID string `protobuf:"bytes,1,opt,name=exec_id,json=execId,proto3" json:"exec_id,omitempty"`
+	ExecID               string   `protobuf:"bytes,1,opt,name=exec_id,json=execId,proto3" json:"exec_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ProcessDetails) Reset()                    { *m = ProcessDetails{} }
 func (*ProcessDetails) ProtoMessage()               {}
 func (*ProcessDetails) Descriptor() ([]byte, []int) { return fileDescriptorRunc, []int{3} }
+func (dst *ProcessDetails) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ProcessDetails.Merge(dst, src)
+}
+func (m *ProcessDetails) XXX_Size() int {
+	return xxx_messageInfo_ProcessDetails.Size(m)
+}
+func (m *ProcessDetails) XXX_DiscardUnknown() {
+	xxx_messageInfo_ProcessDetails.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ProcessDetails proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*RuncOptions)(nil), "containerd.linux.runc.RuncOptions")
@@ -136,6 +192,11 @@ func (m *RuncOptions) MarshalTo(dAtA []byte) (int, error) {
 			dAtA[i] = 0
 		}
 		i++
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -252,6 +313,11 @@ func (m *CreateOptions) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintRunc(dAtA, i, uint64(m.IoGid))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -341,6 +407,11 @@ func (m *CheckpointOptions) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintRunc(dAtA, i, uint64(len(m.CgroupsMode)))
 		i += copy(dAtA[i:], m.CgroupsMode)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -364,6 +435,11 @@ func (m *ProcessDetails) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintRunc(dAtA, i, uint64(len(m.ExecID)))
 		i += copy(dAtA[i:], m.ExecID)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -394,6 +470,11 @@ func (m *RuncOptions) Size() (n int) {
 	}
 	if m.SystemdCgroup {
 		n += 2
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -439,6 +520,11 @@ func (m *CreateOptions) Size() (n int) {
 	if m.IoGid != 0 {
 		n += 1 + sovRunc(uint64(m.IoGid))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -470,6 +556,11 @@ func (m *CheckpointOptions) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovRunc(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -479,6 +570,11 @@ func (m *ProcessDetails) Size() (n int) {
 	l = len(m.ExecID)
 	if l > 0 {
 		n += 1 + l + sovRunc(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -505,6 +601,7 @@ func (this *RuncOptions) String() string {
 		`RuntimeRoot:` + fmt.Sprintf("%v", this.RuntimeRoot) + `,`,
 		`CriuPath:` + fmt.Sprintf("%v", this.CriuPath) + `,`,
 		`SystemdCgroup:` + fmt.Sprintf("%v", this.SystemdCgroup) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -525,6 +622,7 @@ func (this *CreateOptions) String() string {
 		`ShimCgroup:` + fmt.Sprintf("%v", this.ShimCgroup) + `,`,
 		`IoUid:` + fmt.Sprintf("%v", this.IoUid) + `,`,
 		`IoGid:` + fmt.Sprintf("%v", this.IoGid) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -541,6 +639,7 @@ func (this *CheckpointOptions) String() string {
 		`FileLocks:` + fmt.Sprintf("%v", this.FileLocks) + `,`,
 		`EmptyNamespaces:` + fmt.Sprintf("%v", this.EmptyNamespaces) + `,`,
 		`CgroupsMode:` + fmt.Sprintf("%v", this.CgroupsMode) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -551,6 +650,7 @@ func (this *ProcessDetails) String() string {
 	}
 	s := strings.Join([]string{`&ProcessDetails{`,
 		`ExecID:` + fmt.Sprintf("%v", this.ExecID) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -711,6 +811,7 @@ func (m *RuncOptions) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1006,6 +1107,7 @@ func (m *CreateOptions) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1214,6 +1316,7 @@ func (m *CheckpointOptions) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1293,6 +1396,7 @@ func (m *ProcessDetails) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

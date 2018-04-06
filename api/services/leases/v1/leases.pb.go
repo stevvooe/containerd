@@ -52,61 +52,147 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
 // Lease is an object which retains resources while it exists.
 type Lease struct {
-	ID        string            `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	CreatedAt time.Time         `protobuf:"bytes,2,opt,name=created_at,json=createdAt,stdtime" json:"created_at"`
-	Labels    map[string]string `protobuf:"bytes,3,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	ID                   string            `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	CreatedAt            time.Time         `protobuf:"bytes,2,opt,name=created_at,json=createdAt,stdtime" json:"created_at"`
+	Labels               map[string]string `protobuf:"bytes,3,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *Lease) Reset()                    { *m = Lease{} }
 func (*Lease) ProtoMessage()               {}
 func (*Lease) Descriptor() ([]byte, []int) { return fileDescriptorLeases, []int{0} }
+func (dst *Lease) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Lease.Merge(dst, src)
+}
+func (m *Lease) XXX_Size() int {
+	return xxx_messageInfo_Lease.Size(m)
+}
+func (m *Lease) XXX_DiscardUnknown() {
+	xxx_messageInfo_Lease.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Lease proto.InternalMessageInfo
 
 type CreateRequest struct {
 	// ID is used to identity the lease, when the id is not set the service
 	// generates a random identifier for the lease.
-	ID     string            `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Labels map[string]string `protobuf:"bytes,3,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	ID                   string            `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Labels               map[string]string `protobuf:"bytes,3,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *CreateRequest) Reset()                    { *m = CreateRequest{} }
 func (*CreateRequest) ProtoMessage()               {}
 func (*CreateRequest) Descriptor() ([]byte, []int) { return fileDescriptorLeases, []int{1} }
+func (dst *CreateRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateRequest.Merge(dst, src)
+}
+func (m *CreateRequest) XXX_Size() int {
+	return xxx_messageInfo_CreateRequest.Size(m)
+}
+func (m *CreateRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateRequest proto.InternalMessageInfo
 
 type CreateResponse struct {
-	Lease *Lease `protobuf:"bytes,1,opt,name=lease" json:"lease,omitempty"`
+	Lease                *Lease   `protobuf:"bytes,1,opt,name=lease" json:"lease,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateResponse) Reset()                    { *m = CreateResponse{} }
 func (*CreateResponse) ProtoMessage()               {}
 func (*CreateResponse) Descriptor() ([]byte, []int) { return fileDescriptorLeases, []int{2} }
+func (dst *CreateResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateResponse.Merge(dst, src)
+}
+func (m *CreateResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateResponse.Size(m)
+}
+func (m *CreateResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateResponse proto.InternalMessageInfo
 
 type DeleteRequest struct {
-	ID string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	ID                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteRequest) Reset()                    { *m = DeleteRequest{} }
 func (*DeleteRequest) ProtoMessage()               {}
 func (*DeleteRequest) Descriptor() ([]byte, []int) { return fileDescriptorLeases, []int{3} }
+func (dst *DeleteRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteRequest.Merge(dst, src)
+}
+func (m *DeleteRequest) XXX_Size() int {
+	return xxx_messageInfo_DeleteRequest.Size(m)
+}
+func (m *DeleteRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteRequest proto.InternalMessageInfo
 
 type ListRequest struct {
-	Filters []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	Filters              []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListRequest) Reset()                    { *m = ListRequest{} }
 func (*ListRequest) ProtoMessage()               {}
 func (*ListRequest) Descriptor() ([]byte, []int) { return fileDescriptorLeases, []int{4} }
+func (dst *ListRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListRequest.Merge(dst, src)
+}
+func (m *ListRequest) XXX_Size() int {
+	return xxx_messageInfo_ListRequest.Size(m)
+}
+func (m *ListRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListRequest proto.InternalMessageInfo
 
 type ListResponse struct {
-	Leases []*Lease `protobuf:"bytes,1,rep,name=leases" json:"leases,omitempty"`
+	Leases               []*Lease `protobuf:"bytes,1,rep,name=leases" json:"leases,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListResponse) Reset()                    { *m = ListResponse{} }
 func (*ListResponse) ProtoMessage()               {}
 func (*ListResponse) Descriptor() ([]byte, []int) { return fileDescriptorLeases, []int{5} }
+func (dst *ListResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListResponse.Merge(dst, src)
+}
+func (m *ListResponse) XXX_Size() int {
+	return xxx_messageInfo_ListResponse.Size(m)
+}
+func (m *ListResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListResponse proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*Lease)(nil), "containerd.services.leases.v1.Lease")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.leases.v1.Lease.LabelsEntry")
 	proto.RegisterType((*CreateRequest)(nil), "containerd.services.leases.v1.CreateRequest")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.leases.v1.CreateRequest.LabelsEntry")
 	proto.RegisterType((*CreateResponse)(nil), "containerd.services.leases.v1.CreateResponse")
 	proto.RegisterType((*DeleteRequest)(nil), "containerd.services.leases.v1.DeleteRequest")
 	proto.RegisterType((*ListRequest)(nil), "containerd.services.leases.v1.ListRequest")
@@ -311,6 +397,11 @@ func (m *Lease) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -352,6 +443,11 @@ func (m *CreateRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -380,6 +476,11 @@ func (m *CreateResponse) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n2
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -403,6 +504,11 @@ func (m *DeleteRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintLeases(dAtA, i, uint64(len(m.ID)))
 		i += copy(dAtA[i:], m.ID)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -437,6 +543,11 @@ func (m *ListRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], s)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -465,6 +576,11 @@ func (m *ListResponse) MarshalTo(dAtA []byte) (int, error) {
 				return 0, err
 			}
 			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
 		}
 	}
 	return i, nil
@@ -496,6 +612,11 @@ func (m *Lease) Size() (n int) {
 			n += mapEntrySize + 1 + sovLeases(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -514,6 +635,11 @@ func (m *CreateRequest) Size() (n int) {
 			n += mapEntrySize + 1 + sovLeases(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -524,6 +650,11 @@ func (m *CreateResponse) Size() (n int) {
 		l = m.Lease.Size()
 		n += 1 + l + sovLeases(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -533,6 +664,11 @@ func (m *DeleteRequest) Size() (n int) {
 	l = len(m.ID)
 	if l > 0 {
 		n += 1 + l + sovLeases(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -546,6 +682,11 @@ func (m *ListRequest) Size() (n int) {
 			n += 1 + l + sovLeases(uint64(l))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -556,6 +697,11 @@ func (m *ListResponse) Size() (n int) {
 		for _, e := range m.Leases {
 			l = e.Size()
 			n += 1 + l + sovLeases(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
 		}
 	}
 	return n
@@ -592,6 +738,7 @@ func (this *Lease) String() string {
 		`ID:` + fmt.Sprintf("%v", this.ID) + `,`,
 		`CreatedAt:` + strings.Replace(strings.Replace(this.CreatedAt.String(), "Timestamp", "google_protobuf2.Timestamp", 1), `&`, ``, 1) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -613,6 +760,7 @@ func (this *CreateRequest) String() string {
 	s := strings.Join([]string{`&CreateRequest{`,
 		`ID:` + fmt.Sprintf("%v", this.ID) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -623,6 +771,7 @@ func (this *CreateResponse) String() string {
 	}
 	s := strings.Join([]string{`&CreateResponse{`,
 		`Lease:` + strings.Replace(fmt.Sprintf("%v", this.Lease), "Lease", "Lease", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -633,6 +782,7 @@ func (this *DeleteRequest) String() string {
 	}
 	s := strings.Join([]string{`&DeleteRequest{`,
 		`ID:` + fmt.Sprintf("%v", this.ID) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -643,6 +793,7 @@ func (this *ListRequest) String() string {
 	}
 	s := strings.Join([]string{`&ListRequest{`,
 		`Filters:` + fmt.Sprintf("%v", this.Filters) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -653,6 +804,7 @@ func (this *ListResponse) String() string {
 	}
 	s := strings.Join([]string{`&ListResponse{`,
 		`Leases:` + strings.Replace(fmt.Sprintf("%v", this.Leases), "Lease", "Lease", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -883,6 +1035,7 @@ func (m *Lease) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1080,6 +1233,7 @@ func (m *CreateRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1163,6 +1317,7 @@ func (m *CreateResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1242,6 +1397,7 @@ func (m *DeleteRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1321,6 +1477,7 @@ func (m *ListRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1402,6 +1559,7 @@ func (m *ListResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

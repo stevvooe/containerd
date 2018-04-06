@@ -72,44 +72,114 @@ type Image struct {
 	// CreatedAt is the time the image was first created.
 	CreatedAt time.Time `protobuf:"bytes,7,opt,name=created_at,json=createdAt,stdtime" json:"created_at"`
 	// UpdatedAt is the last time the image was mutated.
-	UpdatedAt time.Time `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,stdtime" json:"updated_at"`
+	UpdatedAt            time.Time `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,stdtime" json:"updated_at"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *Image) Reset()                    { *m = Image{} }
 func (*Image) ProtoMessage()               {}
 func (*Image) Descriptor() ([]byte, []int) { return fileDescriptorImages, []int{0} }
+func (dst *Image) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Image.Merge(dst, src)
+}
+func (m *Image) XXX_Size() int {
+	return xxx_messageInfo_Image.Size(m)
+}
+func (m *Image) XXX_DiscardUnknown() {
+	xxx_messageInfo_Image.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Image proto.InternalMessageInfo
 
 type GetImageRequest struct {
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetImageRequest) Reset()                    { *m = GetImageRequest{} }
 func (*GetImageRequest) ProtoMessage()               {}
 func (*GetImageRequest) Descriptor() ([]byte, []int) { return fileDescriptorImages, []int{1} }
+func (dst *GetImageRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetImageRequest.Merge(dst, src)
+}
+func (m *GetImageRequest) XXX_Size() int {
+	return xxx_messageInfo_GetImageRequest.Size(m)
+}
+func (m *GetImageRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetImageRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetImageRequest proto.InternalMessageInfo
 
 type GetImageResponse struct {
-	Image *Image `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
+	Image                *Image   `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetImageResponse) Reset()                    { *m = GetImageResponse{} }
 func (*GetImageResponse) ProtoMessage()               {}
 func (*GetImageResponse) Descriptor() ([]byte, []int) { return fileDescriptorImages, []int{2} }
+func (dst *GetImageResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetImageResponse.Merge(dst, src)
+}
+func (m *GetImageResponse) XXX_Size() int {
+	return xxx_messageInfo_GetImageResponse.Size(m)
+}
+func (m *GetImageResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetImageResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetImageResponse proto.InternalMessageInfo
 
 type CreateImageRequest struct {
-	Image Image `protobuf:"bytes,1,opt,name=image" json:"image"`
+	Image                Image    `protobuf:"bytes,1,opt,name=image" json:"image"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateImageRequest) Reset()                    { *m = CreateImageRequest{} }
 func (*CreateImageRequest) ProtoMessage()               {}
 func (*CreateImageRequest) Descriptor() ([]byte, []int) { return fileDescriptorImages, []int{3} }
+func (dst *CreateImageRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateImageRequest.Merge(dst, src)
+}
+func (m *CreateImageRequest) XXX_Size() int {
+	return xxx_messageInfo_CreateImageRequest.Size(m)
+}
+func (m *CreateImageRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateImageRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateImageRequest proto.InternalMessageInfo
 
 type CreateImageResponse struct {
-	Image Image `protobuf:"bytes,1,opt,name=image" json:"image"`
+	Image                Image    `protobuf:"bytes,1,opt,name=image" json:"image"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateImageResponse) Reset()                    { *m = CreateImageResponse{} }
 func (*CreateImageResponse) ProtoMessage()               {}
 func (*CreateImageResponse) Descriptor() ([]byte, []int) { return fileDescriptorImages, []int{4} }
+func (dst *CreateImageResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateImageResponse.Merge(dst, src)
+}
+func (m *CreateImageResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateImageResponse.Size(m)
+}
+func (m *CreateImageResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateImageResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateImageResponse proto.InternalMessageInfo
 
 type UpdateImageRequest struct {
 	// Image provides a full or partial image for update.
@@ -118,20 +188,48 @@ type UpdateImageRequest struct {
 	Image Image `protobuf:"bytes,1,opt,name=image" json:"image"`
 	// UpdateMask specifies which fields to perform the update on. If empty,
 	// the operation applies to all fields.
-	UpdateMask *google_protobuf2.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	UpdateMask           *google_protobuf2.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
 }
 
 func (m *UpdateImageRequest) Reset()                    { *m = UpdateImageRequest{} }
 func (*UpdateImageRequest) ProtoMessage()               {}
 func (*UpdateImageRequest) Descriptor() ([]byte, []int) { return fileDescriptorImages, []int{5} }
+func (dst *UpdateImageRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateImageRequest.Merge(dst, src)
+}
+func (m *UpdateImageRequest) XXX_Size() int {
+	return xxx_messageInfo_UpdateImageRequest.Size(m)
+}
+func (m *UpdateImageRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateImageRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateImageRequest proto.InternalMessageInfo
 
 type UpdateImageResponse struct {
-	Image Image `protobuf:"bytes,1,opt,name=image" json:"image"`
+	Image                Image    `protobuf:"bytes,1,opt,name=image" json:"image"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *UpdateImageResponse) Reset()                    { *m = UpdateImageResponse{} }
 func (*UpdateImageResponse) ProtoMessage()               {}
 func (*UpdateImageResponse) Descriptor() ([]byte, []int) { return fileDescriptorImages, []int{6} }
+func (dst *UpdateImageResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateImageResponse.Merge(dst, src)
+}
+func (m *UpdateImageResponse) XXX_Size() int {
+	return xxx_messageInfo_UpdateImageResponse.Size(m)
+}
+func (m *UpdateImageResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateImageResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateImageResponse proto.InternalMessageInfo
 
 type ListImagesRequest struct {
 	// Filters contains one or more filters using the syntax defined in the
@@ -144,20 +242,48 @@ type ListImagesRequest struct {
 	//   filters[0] or filters[1] or ... or filters[n-1] or filters[n]
 	//
 	// If filters is zero-length or nil, all items will be returned.
-	Filters []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	Filters              []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListImagesRequest) Reset()                    { *m = ListImagesRequest{} }
 func (*ListImagesRequest) ProtoMessage()               {}
 func (*ListImagesRequest) Descriptor() ([]byte, []int) { return fileDescriptorImages, []int{7} }
+func (dst *ListImagesRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListImagesRequest.Merge(dst, src)
+}
+func (m *ListImagesRequest) XXX_Size() int {
+	return xxx_messageInfo_ListImagesRequest.Size(m)
+}
+func (m *ListImagesRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListImagesRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListImagesRequest proto.InternalMessageInfo
 
 type ListImagesResponse struct {
-	Images []Image `protobuf:"bytes,1,rep,name=images" json:"images"`
+	Images               []Image  `protobuf:"bytes,1,rep,name=images" json:"images"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListImagesResponse) Reset()                    { *m = ListImagesResponse{} }
 func (*ListImagesResponse) ProtoMessage()               {}
 func (*ListImagesResponse) Descriptor() ([]byte, []int) { return fileDescriptorImages, []int{8} }
+func (dst *ListImagesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListImagesResponse.Merge(dst, src)
+}
+func (m *ListImagesResponse) XXX_Size() int {
+	return xxx_messageInfo_ListImagesResponse.Size(m)
+}
+func (m *ListImagesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListImagesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListImagesResponse proto.InternalMessageInfo
 
 type DeleteImageRequest struct {
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
@@ -165,15 +291,30 @@ type DeleteImageRequest struct {
 	// synchronously before returning to the caller
 	//
 	// Default is false
-	Sync bool `protobuf:"varint,2,opt,name=sync,proto3" json:"sync,omitempty"`
+	Sync                 bool     `protobuf:"varint,2,opt,name=sync,proto3" json:"sync,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteImageRequest) Reset()                    { *m = DeleteImageRequest{} }
 func (*DeleteImageRequest) ProtoMessage()               {}
 func (*DeleteImageRequest) Descriptor() ([]byte, []int) { return fileDescriptorImages, []int{9} }
+func (dst *DeleteImageRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteImageRequest.Merge(dst, src)
+}
+func (m *DeleteImageRequest) XXX_Size() int {
+	return xxx_messageInfo_DeleteImageRequest.Size(m)
+}
+func (m *DeleteImageRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteImageRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteImageRequest proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*Image)(nil), "containerd.services.images.v1.Image")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.images.v1.Image.LabelsEntry")
 	proto.RegisterType((*GetImageRequest)(nil), "containerd.services.images.v1.GetImageRequest")
 	proto.RegisterType((*GetImageResponse)(nil), "containerd.services.images.v1.GetImageResponse")
 	proto.RegisterType((*CreateImageRequest)(nil), "containerd.services.images.v1.CreateImageRequest")
@@ -467,6 +608,11 @@ func (m *Image) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n3
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -490,6 +636,11 @@ func (m *GetImageRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintImages(dAtA, i, uint64(len(m.Name)))
 		i += copy(dAtA[i:], m.Name)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -519,6 +670,11 @@ func (m *GetImageResponse) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n4
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -545,6 +701,11 @@ func (m *CreateImageRequest) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n5
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -571,6 +732,11 @@ func (m *CreateImageResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n6
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -607,6 +773,11 @@ func (m *UpdateImageRequest) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n8
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -633,6 +804,11 @@ func (m *UpdateImageResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n9
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -666,6 +842,11 @@ func (m *ListImagesRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], s)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -694,6 +875,11 @@ func (m *ListImagesResponse) MarshalTo(dAtA []byte) (int, error) {
 				return 0, err
 			}
 			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
 		}
 	}
 	return i, nil
@@ -730,6 +916,11 @@ func (m *DeleteImageRequest) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i++
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -763,6 +954,11 @@ func (m *Image) Size() (n int) {
 	n += 1 + l + sovImages(uint64(l))
 	l = types.SizeOfStdTime(m.UpdatedAt)
 	n += 1 + l + sovImages(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -772,6 +968,11 @@ func (m *GetImageRequest) Size() (n int) {
 	l = len(m.Name)
 	if l > 0 {
 		n += 1 + l + sovImages(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -783,6 +984,11 @@ func (m *GetImageResponse) Size() (n int) {
 		l = m.Image.Size()
 		n += 1 + l + sovImages(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -791,6 +997,11 @@ func (m *CreateImageRequest) Size() (n int) {
 	_ = l
 	l = m.Image.Size()
 	n += 1 + l + sovImages(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -799,6 +1010,11 @@ func (m *CreateImageResponse) Size() (n int) {
 	_ = l
 	l = m.Image.Size()
 	n += 1 + l + sovImages(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -811,6 +1027,11 @@ func (m *UpdateImageRequest) Size() (n int) {
 		l = m.UpdateMask.Size()
 		n += 1 + l + sovImages(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -819,6 +1040,11 @@ func (m *UpdateImageResponse) Size() (n int) {
 	_ = l
 	l = m.Image.Size()
 	n += 1 + l + sovImages(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -829,6 +1055,11 @@ func (m *ListImagesRequest) Size() (n int) {
 		for _, s := range m.Filters {
 			l = len(s)
 			n += 1 + l + sovImages(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
 		}
 	}
 	return n
@@ -843,6 +1074,11 @@ func (m *ListImagesResponse) Size() (n int) {
 			n += 1 + l + sovImages(uint64(l))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -855,6 +1091,11 @@ func (m *DeleteImageRequest) Size() (n int) {
 	}
 	if m.Sync {
 		n += 2
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -892,6 +1133,7 @@ func (this *Image) String() string {
 		`Target:` + strings.Replace(strings.Replace(this.Target.String(), "Descriptor", "containerd_types.Descriptor", 1), `&`, ``, 1) + `,`,
 		`CreatedAt:` + strings.Replace(strings.Replace(this.CreatedAt.String(), "Timestamp", "google_protobuf3.Timestamp", 1), `&`, ``, 1) + `,`,
 		`UpdatedAt:` + strings.Replace(strings.Replace(this.UpdatedAt.String(), "Timestamp", "google_protobuf3.Timestamp", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -902,6 +1144,7 @@ func (this *GetImageRequest) String() string {
 	}
 	s := strings.Join([]string{`&GetImageRequest{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -912,6 +1155,7 @@ func (this *GetImageResponse) String() string {
 	}
 	s := strings.Join([]string{`&GetImageResponse{`,
 		`Image:` + strings.Replace(fmt.Sprintf("%v", this.Image), "Image", "Image", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -922,6 +1166,7 @@ func (this *CreateImageRequest) String() string {
 	}
 	s := strings.Join([]string{`&CreateImageRequest{`,
 		`Image:` + strings.Replace(strings.Replace(this.Image.String(), "Image", "Image", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -932,6 +1177,7 @@ func (this *CreateImageResponse) String() string {
 	}
 	s := strings.Join([]string{`&CreateImageResponse{`,
 		`Image:` + strings.Replace(strings.Replace(this.Image.String(), "Image", "Image", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -943,6 +1189,7 @@ func (this *UpdateImageRequest) String() string {
 	s := strings.Join([]string{`&UpdateImageRequest{`,
 		`Image:` + strings.Replace(strings.Replace(this.Image.String(), "Image", "Image", 1), `&`, ``, 1) + `,`,
 		`UpdateMask:` + strings.Replace(fmt.Sprintf("%v", this.UpdateMask), "FieldMask", "google_protobuf2.FieldMask", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -953,6 +1200,7 @@ func (this *UpdateImageResponse) String() string {
 	}
 	s := strings.Join([]string{`&UpdateImageResponse{`,
 		`Image:` + strings.Replace(strings.Replace(this.Image.String(), "Image", "Image", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -963,6 +1211,7 @@ func (this *ListImagesRequest) String() string {
 	}
 	s := strings.Join([]string{`&ListImagesRequest{`,
 		`Filters:` + fmt.Sprintf("%v", this.Filters) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -973,6 +1222,7 @@ func (this *ListImagesResponse) String() string {
 	}
 	s := strings.Join([]string{`&ListImagesResponse{`,
 		`Images:` + strings.Replace(strings.Replace(fmt.Sprintf("%v", this.Images), "Image", "Image", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -984,6 +1234,7 @@ func (this *DeleteImageRequest) String() string {
 	s := strings.Join([]string{`&DeleteImageRequest{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
 		`Sync:` + fmt.Sprintf("%v", this.Sync) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1274,6 +1525,7 @@ func (m *Image) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1353,6 +1605,7 @@ func (m *GetImageRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1436,6 +1689,7 @@ func (m *GetImageResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1516,6 +1770,7 @@ func (m *CreateImageRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1596,6 +1851,7 @@ func (m *CreateImageResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1709,6 +1965,7 @@ func (m *UpdateImageRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1789,6 +2046,7 @@ func (m *UpdateImageResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1868,6 +2126,7 @@ func (m *ListImagesRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1949,6 +2208,7 @@ func (m *ListImagesResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2048,6 +2308,7 @@ func (m *DeleteImageRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

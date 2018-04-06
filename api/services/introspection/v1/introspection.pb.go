@@ -79,12 +79,26 @@ type Plugin struct {
 	// was encountered during initialization.
 	//
 	// Plugins that have this value set cannot be used.
-	InitErr *google_rpc.Status `protobuf:"bytes,7,opt,name=init_err,json=initErr" json:"init_err,omitempty"`
+	InitErr              *google_rpc.Status `protobuf:"bytes,7,opt,name=init_err,json=initErr" json:"init_err,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
+	XXX_unrecognized     []byte             `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32              `json:"-"`
 }
 
 func (m *Plugin) Reset()                    { *m = Plugin{} }
 func (*Plugin) ProtoMessage()               {}
 func (*Plugin) Descriptor() ([]byte, []int) { return fileDescriptorIntrospection, []int{0} }
+func (dst *Plugin) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Plugin.Merge(dst, src)
+}
+func (m *Plugin) XXX_Size() int {
+	return xxx_messageInfo_Plugin.Size(m)
+}
+func (m *Plugin) XXX_DiscardUnknown() {
+	xxx_messageInfo_Plugin.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Plugin proto.InternalMessageInfo
 
 type PluginsRequest struct {
 	// Filters contains one or more filters using the syntax defined in the
@@ -97,23 +111,52 @@ type PluginsRequest struct {
 	//   filters[0] or filters[1] or ... or filters[n-1] or filters[n]
 	//
 	// If filters is zero-length or nil, all items will be returned.
-	Filters []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	Filters              []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *PluginsRequest) Reset()                    { *m = PluginsRequest{} }
 func (*PluginsRequest) ProtoMessage()               {}
 func (*PluginsRequest) Descriptor() ([]byte, []int) { return fileDescriptorIntrospection, []int{1} }
+func (dst *PluginsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PluginsRequest.Merge(dst, src)
+}
+func (m *PluginsRequest) XXX_Size() int {
+	return xxx_messageInfo_PluginsRequest.Size(m)
+}
+func (m *PluginsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_PluginsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PluginsRequest proto.InternalMessageInfo
 
 type PluginsResponse struct {
-	Plugins []Plugin `protobuf:"bytes,1,rep,name=plugins" json:"plugins"`
+	Plugins              []Plugin `protobuf:"bytes,1,rep,name=plugins" json:"plugins"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *PluginsResponse) Reset()                    { *m = PluginsResponse{} }
 func (*PluginsResponse) ProtoMessage()               {}
 func (*PluginsResponse) Descriptor() ([]byte, []int) { return fileDescriptorIntrospection, []int{2} }
+func (dst *PluginsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PluginsResponse.Merge(dst, src)
+}
+func (m *PluginsResponse) XXX_Size() int {
+	return xxx_messageInfo_PluginsResponse.Size(m)
+}
+func (m *PluginsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_PluginsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PluginsResponse proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*Plugin)(nil), "containerd.services.introspection.v1.Plugin")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.introspection.v1.Plugin.ExportsEntry")
 	proto.RegisterType((*PluginsRequest)(nil), "containerd.services.introspection.v1.PluginsRequest")
 	proto.RegisterType((*PluginsResponse)(nil), "containerd.services.introspection.v1.PluginsResponse")
 }
@@ -294,6 +337,11 @@ func (m *Plugin) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n1
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -327,6 +375,11 @@ func (m *PluginsRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], s)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -355,6 +408,11 @@ func (m *PluginsResponse) MarshalTo(dAtA []byte) (int, error) {
 				return 0, err
 			}
 			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
 		}
 	}
 	return i, nil
@@ -410,6 +468,11 @@ func (m *Plugin) Size() (n int) {
 		l = m.InitErr.Size()
 		n += 1 + l + sovIntrospection(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -422,6 +485,11 @@ func (m *PluginsRequest) Size() (n int) {
 			n += 1 + l + sovIntrospection(uint64(l))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -432,6 +500,11 @@ func (m *PluginsResponse) Size() (n int) {
 		for _, e := range m.Plugins {
 			l = e.Size()
 			n += 1 + l + sovIntrospection(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
 		}
 	}
 	return n
@@ -472,6 +545,7 @@ func (this *Plugin) String() string {
 		`Exports:` + mapStringForExports + `,`,
 		`Capabilities:` + fmt.Sprintf("%v", this.Capabilities) + `,`,
 		`InitErr:` + strings.Replace(fmt.Sprintf("%v", this.InitErr), "Status", "google_rpc.Status", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -482,6 +556,7 @@ func (this *PluginsRequest) String() string {
 	}
 	s := strings.Join([]string{`&PluginsRequest{`,
 		`Filters:` + fmt.Sprintf("%v", this.Filters) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -492,6 +567,7 @@ func (this *PluginsResponse) String() string {
 	}
 	s := strings.Join([]string{`&PluginsResponse{`,
 		`Plugins:` + strings.Replace(strings.Replace(fmt.Sprintf("%v", this.Plugins), "Plugin", "Plugin", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -843,6 +919,7 @@ func (m *Plugin) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -922,6 +999,7 @@ func (m *PluginsRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1003,6 +1081,7 @@ func (m *PluginsResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

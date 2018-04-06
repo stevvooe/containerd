@@ -20,30 +20,72 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type SnapshotPrepare struct {
-	Key    string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
-	Parent string `protobuf:"bytes,2,opt,name=parent,proto3" json:"parent,omitempty"`
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Parent               string   `protobuf:"bytes,2,opt,name=parent,proto3" json:"parent,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *SnapshotPrepare) Reset()                    { *m = SnapshotPrepare{} }
 func (*SnapshotPrepare) ProtoMessage()               {}
 func (*SnapshotPrepare) Descriptor() ([]byte, []int) { return fileDescriptorSnapshot, []int{0} }
+func (dst *SnapshotPrepare) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SnapshotPrepare.Merge(dst, src)
+}
+func (m *SnapshotPrepare) XXX_Size() int {
+	return xxx_messageInfo_SnapshotPrepare.Size(m)
+}
+func (m *SnapshotPrepare) XXX_DiscardUnknown() {
+	xxx_messageInfo_SnapshotPrepare.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SnapshotPrepare proto.InternalMessageInfo
 
 type SnapshotCommit struct {
-	Key  string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
-	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *SnapshotCommit) Reset()                    { *m = SnapshotCommit{} }
 func (*SnapshotCommit) ProtoMessage()               {}
 func (*SnapshotCommit) Descriptor() ([]byte, []int) { return fileDescriptorSnapshot, []int{1} }
+func (dst *SnapshotCommit) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SnapshotCommit.Merge(dst, src)
+}
+func (m *SnapshotCommit) XXX_Size() int {
+	return xxx_messageInfo_SnapshotCommit.Size(m)
+}
+func (m *SnapshotCommit) XXX_DiscardUnknown() {
+	xxx_messageInfo_SnapshotCommit.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SnapshotCommit proto.InternalMessageInfo
 
 type SnapshotRemove struct {
-	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *SnapshotRemove) Reset()                    { *m = SnapshotRemove{} }
 func (*SnapshotRemove) ProtoMessage()               {}
 func (*SnapshotRemove) Descriptor() ([]byte, []int) { return fileDescriptorSnapshot, []int{2} }
+func (dst *SnapshotRemove) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SnapshotRemove.Merge(dst, src)
+}
+func (m *SnapshotRemove) XXX_Size() int {
+	return xxx_messageInfo_SnapshotRemove.Size(m)
+}
+func (m *SnapshotRemove) XXX_DiscardUnknown() {
+	xxx_messageInfo_SnapshotRemove.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SnapshotRemove proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*SnapshotPrepare)(nil), "containerd.events.SnapshotPrepare")
@@ -123,6 +165,11 @@ func (m *SnapshotPrepare) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintSnapshot(dAtA, i, uint64(len(m.Parent)))
 		i += copy(dAtA[i:], m.Parent)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -153,6 +200,11 @@ func (m *SnapshotCommit) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintSnapshot(dAtA, i, uint64(len(m.Name)))
 		i += copy(dAtA[i:], m.Name)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -177,6 +229,11 @@ func (m *SnapshotRemove) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintSnapshot(dAtA, i, uint64(len(m.Key)))
 		i += copy(dAtA[i:], m.Key)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -200,6 +257,11 @@ func (m *SnapshotPrepare) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovSnapshot(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -214,6 +276,11 @@ func (m *SnapshotCommit) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovSnapshot(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -223,6 +290,11 @@ func (m *SnapshotRemove) Size() (n int) {
 	l = len(m.Key)
 	if l > 0 {
 		n += 1 + l + sovSnapshot(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -247,6 +319,7 @@ func (this *SnapshotPrepare) String() string {
 	s := strings.Join([]string{`&SnapshotPrepare{`,
 		`Key:` + fmt.Sprintf("%v", this.Key) + `,`,
 		`Parent:` + fmt.Sprintf("%v", this.Parent) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -258,6 +331,7 @@ func (this *SnapshotCommit) String() string {
 	s := strings.Join([]string{`&SnapshotCommit{`,
 		`Key:` + fmt.Sprintf("%v", this.Key) + `,`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -268,6 +342,7 @@ func (this *SnapshotRemove) String() string {
 	}
 	s := strings.Join([]string{`&SnapshotRemove{`,
 		`Key:` + fmt.Sprintf("%v", this.Key) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -379,6 +454,7 @@ func (m *SnapshotPrepare) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -487,6 +563,7 @@ func (m *SnapshotCommit) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -566,6 +643,7 @@ func (m *SnapshotRemove) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

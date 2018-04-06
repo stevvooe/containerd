@@ -48,14 +48,28 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 // oci descriptor found in a manifest.
 // See https://godoc.org/github.com/opencontainers/image-spec/specs-go/v1#Descriptor
 type Descriptor struct {
-	MediaType string                                     `protobuf:"bytes,1,opt,name=media_type,json=mediaType,proto3" json:"media_type,omitempty"`
-	Digest    github_com_opencontainers_go_digest.Digest `protobuf:"bytes,2,opt,name=digest,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"digest"`
-	Size_     int64                                      `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
+	MediaType            string                                     `protobuf:"bytes,1,opt,name=media_type,json=mediaType,proto3" json:"media_type,omitempty"`
+	Digest               github_com_opencontainers_go_digest.Digest `protobuf:"bytes,2,opt,name=digest,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"digest"`
+	Size_                int64                                      `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
 }
 
 func (m *Descriptor) Reset()                    { *m = Descriptor{} }
 func (*Descriptor) ProtoMessage()               {}
 func (*Descriptor) Descriptor() ([]byte, []int) { return fileDescriptorDescriptor, []int{0} }
+func (dst *Descriptor) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Descriptor.Merge(dst, src)
+}
+func (m *Descriptor) XXX_Size() int {
+	return xxx_messageInfo_Descriptor.Size(m)
+}
+func (m *Descriptor) XXX_DiscardUnknown() {
+	xxx_messageInfo_Descriptor.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Descriptor proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*Descriptor)(nil), "containerd.types.Descriptor")
@@ -92,6 +106,11 @@ func (m *Descriptor) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintDescriptor(dAtA, i, uint64(m.Size_))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -118,6 +137,11 @@ func (m *Descriptor) Size() (n int) {
 	if m.Size_ != 0 {
 		n += 1 + sovDescriptor(uint64(m.Size_))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -142,6 +166,7 @@ func (this *Descriptor) String() string {
 		`MediaType:` + fmt.Sprintf("%v", this.MediaType) + `,`,
 		`Digest:` + fmt.Sprintf("%v", this.Digest) + `,`,
 		`Size_:` + fmt.Sprintf("%v", this.Size_) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -272,6 +297,7 @@ func (m *Descriptor) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

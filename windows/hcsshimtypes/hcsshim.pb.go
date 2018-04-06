@@ -43,12 +43,26 @@ var _ = time.Kitchen
 const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
 type CreateOptions struct {
-	TerminateDuration time.Duration `protobuf:"bytes,1,opt,name=terminate_duration,json=terminateDuration,stdduration" json:"terminate_duration"`
+	TerminateDuration    time.Duration `protobuf:"bytes,1,opt,name=terminate_duration,json=terminateDuration,stdduration" json:"terminate_duration"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32         `json:"-"`
 }
 
 func (m *CreateOptions) Reset()                    { *m = CreateOptions{} }
 func (*CreateOptions) ProtoMessage()               {}
 func (*CreateOptions) Descriptor() ([]byte, []int) { return fileDescriptorHcsshim, []int{0} }
+func (dst *CreateOptions) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateOptions.Merge(dst, src)
+}
+func (m *CreateOptions) XXX_Size() int {
+	return xxx_messageInfo_CreateOptions.Size(m)
+}
+func (m *CreateOptions) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateOptions.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateOptions proto.InternalMessageInfo
 
 // ProcessDetails contains additional information about a process
 // ProcessDetails is made of the same fields as found in hcsshim.ProcessListItem
@@ -62,11 +76,25 @@ type ProcessDetails struct {
 	ProcessID                    uint32    `protobuf:"varint,7,opt,name=process_id,json=processId,proto3" json:"process_id,omitempty"`
 	UserTime_100Ns               uint64    `protobuf:"varint,8,opt,name=user_time_100_ns,json=userTime100Ns,proto3" json:"user_time_100_ns,omitempty"`
 	ExecID                       string    `protobuf:"bytes,9,opt,name=exec_id,json=execId,proto3" json:"exec_id,omitempty"`
+	XXX_NoUnkeyedLiteral         struct{}  `json:"-"`
+	XXX_unrecognized             []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache                int32     `json:"-"`
 }
 
 func (m *ProcessDetails) Reset()                    { *m = ProcessDetails{} }
 func (*ProcessDetails) ProtoMessage()               {}
 func (*ProcessDetails) Descriptor() ([]byte, []int) { return fileDescriptorHcsshim, []int{1} }
+func (dst *ProcessDetails) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ProcessDetails.Merge(dst, src)
+}
+func (m *ProcessDetails) XXX_Size() int {
+	return xxx_messageInfo_ProcessDetails.Size(m)
+}
+func (m *ProcessDetails) XXX_DiscardUnknown() {
+	xxx_messageInfo_ProcessDetails.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ProcessDetails proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*CreateOptions)(nil), "containerd.windows.hcsshim.CreateOptions")
@@ -95,6 +123,11 @@ func (m *CreateOptions) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n1
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -163,6 +196,11 @@ func (m *ProcessDetails) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintHcsshim(dAtA, i, uint64(len(m.ExecID)))
 		i += copy(dAtA[i:], m.ExecID)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -180,6 +218,11 @@ func (m *CreateOptions) Size() (n int) {
 	_ = l
 	l = types.SizeOfStdDuration(m.TerminateDuration)
 	n += 1 + l + sovHcsshim(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -214,6 +257,11 @@ func (m *ProcessDetails) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovHcsshim(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -236,6 +284,7 @@ func (this *CreateOptions) String() string {
 	}
 	s := strings.Join([]string{`&CreateOptions{`,
 		`TerminateDuration:` + strings.Replace(strings.Replace(this.TerminateDuration.String(), "Duration", "google_protobuf1.Duration", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -254,6 +303,7 @@ func (this *ProcessDetails) String() string {
 		`ProcessID:` + fmt.Sprintf("%v", this.ProcessID) + `,`,
 		`UserTime_100Ns:` + fmt.Sprintf("%v", this.UserTime_100Ns) + `,`,
 		`ExecID:` + fmt.Sprintf("%v", this.ExecID) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -337,6 +387,7 @@ func (m *CreateOptions) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -589,6 +640,7 @@ func (m *ProcessDetails) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

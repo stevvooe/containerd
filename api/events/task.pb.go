@@ -29,112 +29,266 @@ var _ = math.Inf
 var _ = time.Kitchen
 
 type TaskCreate struct {
-	ContainerID string                    `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
-	Bundle      string                    `protobuf:"bytes,2,opt,name=bundle,proto3" json:"bundle,omitempty"`
-	Rootfs      []*containerd_types.Mount `protobuf:"bytes,3,rep,name=rootfs" json:"rootfs,omitempty"`
-	IO          *TaskIO                   `protobuf:"bytes,4,opt,name=io" json:"io,omitempty"`
-	Checkpoint  string                    `protobuf:"bytes,5,opt,name=checkpoint,proto3" json:"checkpoint,omitempty"`
-	Pid         uint32                    `protobuf:"varint,6,opt,name=pid,proto3" json:"pid,omitempty"`
+	ContainerID          string                    `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	Bundle               string                    `protobuf:"bytes,2,opt,name=bundle,proto3" json:"bundle,omitempty"`
+	Rootfs               []*containerd_types.Mount `protobuf:"bytes,3,rep,name=rootfs" json:"rootfs,omitempty"`
+	IO                   *TaskIO                   `protobuf:"bytes,4,opt,name=io" json:"io,omitempty"`
+	Checkpoint           string                    `protobuf:"bytes,5,opt,name=checkpoint,proto3" json:"checkpoint,omitempty"`
+	Pid                  uint32                    `protobuf:"varint,6,opt,name=pid,proto3" json:"pid,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
 }
 
 func (m *TaskCreate) Reset()                    { *m = TaskCreate{} }
 func (*TaskCreate) ProtoMessage()               {}
 func (*TaskCreate) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{0} }
+func (dst *TaskCreate) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskCreate.Merge(dst, src)
+}
+func (m *TaskCreate) XXX_Size() int {
+	return xxx_messageInfo_TaskCreate.Size(m)
+}
+func (m *TaskCreate) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskCreate.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskCreate proto.InternalMessageInfo
 
 type TaskStart struct {
-	ContainerID string `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
-	Pid         uint32 `protobuf:"varint,2,opt,name=pid,proto3" json:"pid,omitempty"`
+	ContainerID          string   `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	Pid                  uint32   `protobuf:"varint,2,opt,name=pid,proto3" json:"pid,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *TaskStart) Reset()                    { *m = TaskStart{} }
 func (*TaskStart) ProtoMessage()               {}
 func (*TaskStart) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{1} }
+func (dst *TaskStart) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskStart.Merge(dst, src)
+}
+func (m *TaskStart) XXX_Size() int {
+	return xxx_messageInfo_TaskStart.Size(m)
+}
+func (m *TaskStart) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskStart.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskStart proto.InternalMessageInfo
 
 type TaskDelete struct {
-	ContainerID string    `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
-	Pid         uint32    `protobuf:"varint,2,opt,name=pid,proto3" json:"pid,omitempty"`
-	ExitStatus  uint32    `protobuf:"varint,3,opt,name=exit_status,json=exitStatus,proto3" json:"exit_status,omitempty"`
-	ExitedAt    time.Time `protobuf:"bytes,4,opt,name=exited_at,json=exitedAt,stdtime" json:"exited_at"`
+	ContainerID          string    `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	Pid                  uint32    `protobuf:"varint,2,opt,name=pid,proto3" json:"pid,omitempty"`
+	ExitStatus           uint32    `protobuf:"varint,3,opt,name=exit_status,json=exitStatus,proto3" json:"exit_status,omitempty"`
+	ExitedAt             time.Time `protobuf:"bytes,4,opt,name=exited_at,json=exitedAt,stdtime" json:"exited_at"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *TaskDelete) Reset()                    { *m = TaskDelete{} }
 func (*TaskDelete) ProtoMessage()               {}
 func (*TaskDelete) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{2} }
+func (dst *TaskDelete) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskDelete.Merge(dst, src)
+}
+func (m *TaskDelete) XXX_Size() int {
+	return xxx_messageInfo_TaskDelete.Size(m)
+}
+func (m *TaskDelete) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskDelete.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskDelete proto.InternalMessageInfo
 
 type TaskIO struct {
-	Stdin    string `protobuf:"bytes,1,opt,name=stdin,proto3" json:"stdin,omitempty"`
-	Stdout   string `protobuf:"bytes,2,opt,name=stdout,proto3" json:"stdout,omitempty"`
-	Stderr   string `protobuf:"bytes,3,opt,name=stderr,proto3" json:"stderr,omitempty"`
-	Terminal bool   `protobuf:"varint,4,opt,name=terminal,proto3" json:"terminal,omitempty"`
+	Stdin                string   `protobuf:"bytes,1,opt,name=stdin,proto3" json:"stdin,omitempty"`
+	Stdout               string   `protobuf:"bytes,2,opt,name=stdout,proto3" json:"stdout,omitempty"`
+	Stderr               string   `protobuf:"bytes,3,opt,name=stderr,proto3" json:"stderr,omitempty"`
+	Terminal             bool     `protobuf:"varint,4,opt,name=terminal,proto3" json:"terminal,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *TaskIO) Reset()                    { *m = TaskIO{} }
 func (*TaskIO) ProtoMessage()               {}
 func (*TaskIO) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{3} }
+func (dst *TaskIO) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskIO.Merge(dst, src)
+}
+func (m *TaskIO) XXX_Size() int {
+	return xxx_messageInfo_TaskIO.Size(m)
+}
+func (m *TaskIO) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskIO.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskIO proto.InternalMessageInfo
 
 type TaskExit struct {
-	ContainerID string    `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
-	ID          string    `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
-	Pid         uint32    `protobuf:"varint,3,opt,name=pid,proto3" json:"pid,omitempty"`
-	ExitStatus  uint32    `protobuf:"varint,4,opt,name=exit_status,json=exitStatus,proto3" json:"exit_status,omitempty"`
-	ExitedAt    time.Time `protobuf:"bytes,5,opt,name=exited_at,json=exitedAt,stdtime" json:"exited_at"`
+	ContainerID          string    `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	ID                   string    `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	Pid                  uint32    `protobuf:"varint,3,opt,name=pid,proto3" json:"pid,omitempty"`
+	ExitStatus           uint32    `protobuf:"varint,4,opt,name=exit_status,json=exitStatus,proto3" json:"exit_status,omitempty"`
+	ExitedAt             time.Time `protobuf:"bytes,5,opt,name=exited_at,json=exitedAt,stdtime" json:"exited_at"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *TaskExit) Reset()                    { *m = TaskExit{} }
 func (*TaskExit) ProtoMessage()               {}
 func (*TaskExit) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{4} }
+func (dst *TaskExit) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskExit.Merge(dst, src)
+}
+func (m *TaskExit) XXX_Size() int {
+	return xxx_messageInfo_TaskExit.Size(m)
+}
+func (m *TaskExit) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskExit.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskExit proto.InternalMessageInfo
 
 type TaskOOM struct {
-	ContainerID string `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	ContainerID          string   `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *TaskOOM) Reset()                    { *m = TaskOOM{} }
 func (*TaskOOM) ProtoMessage()               {}
 func (*TaskOOM) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{5} }
+func (dst *TaskOOM) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskOOM.Merge(dst, src)
+}
+func (m *TaskOOM) XXX_Size() int {
+	return xxx_messageInfo_TaskOOM.Size(m)
+}
+func (m *TaskOOM) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskOOM.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskOOM proto.InternalMessageInfo
 
 type TaskExecAdded struct {
-	ContainerID string `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
-	ExecID      string `protobuf:"bytes,2,opt,name=exec_id,json=execId,proto3" json:"exec_id,omitempty"`
+	ContainerID          string   `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	ExecID               string   `protobuf:"bytes,2,opt,name=exec_id,json=execId,proto3" json:"exec_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *TaskExecAdded) Reset()                    { *m = TaskExecAdded{} }
 func (*TaskExecAdded) ProtoMessage()               {}
 func (*TaskExecAdded) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{6} }
+func (dst *TaskExecAdded) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskExecAdded.Merge(dst, src)
+}
+func (m *TaskExecAdded) XXX_Size() int {
+	return xxx_messageInfo_TaskExecAdded.Size(m)
+}
+func (m *TaskExecAdded) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskExecAdded.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskExecAdded proto.InternalMessageInfo
 
 type TaskExecStarted struct {
-	ContainerID string `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
-	ExecID      string `protobuf:"bytes,2,opt,name=exec_id,json=execId,proto3" json:"exec_id,omitempty"`
-	Pid         uint32 `protobuf:"varint,3,opt,name=pid,proto3" json:"pid,omitempty"`
+	ContainerID          string   `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	ExecID               string   `protobuf:"bytes,2,opt,name=exec_id,json=execId,proto3" json:"exec_id,omitempty"`
+	Pid                  uint32   `protobuf:"varint,3,opt,name=pid,proto3" json:"pid,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *TaskExecStarted) Reset()                    { *m = TaskExecStarted{} }
 func (*TaskExecStarted) ProtoMessage()               {}
 func (*TaskExecStarted) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{7} }
+func (dst *TaskExecStarted) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskExecStarted.Merge(dst, src)
+}
+func (m *TaskExecStarted) XXX_Size() int {
+	return xxx_messageInfo_TaskExecStarted.Size(m)
+}
+func (m *TaskExecStarted) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskExecStarted.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskExecStarted proto.InternalMessageInfo
 
 type TaskPaused struct {
-	ContainerID string `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	ContainerID          string   `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *TaskPaused) Reset()                    { *m = TaskPaused{} }
 func (*TaskPaused) ProtoMessage()               {}
 func (*TaskPaused) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{8} }
+func (dst *TaskPaused) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskPaused.Merge(dst, src)
+}
+func (m *TaskPaused) XXX_Size() int {
+	return xxx_messageInfo_TaskPaused.Size(m)
+}
+func (m *TaskPaused) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskPaused.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskPaused proto.InternalMessageInfo
 
 type TaskResumed struct {
-	ContainerID string `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	ContainerID          string   `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *TaskResumed) Reset()                    { *m = TaskResumed{} }
 func (*TaskResumed) ProtoMessage()               {}
 func (*TaskResumed) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{9} }
+func (dst *TaskResumed) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskResumed.Merge(dst, src)
+}
+func (m *TaskResumed) XXX_Size() int {
+	return xxx_messageInfo_TaskResumed.Size(m)
+}
+func (m *TaskResumed) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskResumed.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskResumed proto.InternalMessageInfo
 
 type TaskCheckpointed struct {
-	ContainerID string `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
-	Checkpoint  string `protobuf:"bytes,2,opt,name=checkpoint,proto3" json:"checkpoint,omitempty"`
+	ContainerID          string   `protobuf:"bytes,1,opt,name=container_id,json=containerId,proto3" json:"container_id,omitempty"`
+	Checkpoint           string   `protobuf:"bytes,2,opt,name=checkpoint,proto3" json:"checkpoint,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *TaskCheckpointed) Reset()                    { *m = TaskCheckpointed{} }
 func (*TaskCheckpointed) ProtoMessage()               {}
 func (*TaskCheckpointed) Descriptor() ([]byte, []int) { return fileDescriptorTask, []int{10} }
+func (dst *TaskCheckpointed) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskCheckpointed.Merge(dst, src)
+}
+func (m *TaskCheckpointed) XXX_Size() int {
+	return xxx_messageInfo_TaskCheckpointed.Size(m)
+}
+func (m *TaskCheckpointed) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskCheckpointed.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskCheckpointed proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*TaskCreate)(nil), "containerd.events.TaskCreate")
@@ -403,6 +557,11 @@ func (m *TaskCreate) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(m.Pid))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -431,6 +590,11 @@ func (m *TaskStart) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x10
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(m.Pid))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -474,6 +638,11 @@ func (m *TaskDelete) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n2
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -519,6 +688,11 @@ func (m *TaskIO) MarshalTo(dAtA []byte) (int, error) {
 			dAtA[i] = 0
 		}
 		i++
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -568,6 +742,11 @@ func (m *TaskExit) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n3
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -591,6 +770,11 @@ func (m *TaskOOM) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(len(m.ContainerID)))
 		i += copy(dAtA[i:], m.ContainerID)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -621,6 +805,11 @@ func (m *TaskExecAdded) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(len(m.ExecID)))
 		i += copy(dAtA[i:], m.ExecID)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -657,6 +846,11 @@ func (m *TaskExecStarted) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(m.Pid))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -681,6 +875,11 @@ func (m *TaskPaused) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintTask(dAtA, i, uint64(len(m.ContainerID)))
 		i += copy(dAtA[i:], m.ContainerID)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -704,6 +903,11 @@ func (m *TaskResumed) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(len(m.ContainerID)))
 		i += copy(dAtA[i:], m.ContainerID)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -734,6 +938,11 @@ func (m *TaskCheckpointed) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(len(m.Checkpoint)))
 		i += copy(dAtA[i:], m.Checkpoint)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -775,6 +984,11 @@ func (m *TaskCreate) Size() (n int) {
 	if m.Pid != 0 {
 		n += 1 + sovTask(uint64(m.Pid))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -787,6 +1001,11 @@ func (m *TaskStart) Size() (n int) {
 	}
 	if m.Pid != 0 {
 		n += 1 + sovTask(uint64(m.Pid))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -806,6 +1025,11 @@ func (m *TaskDelete) Size() (n int) {
 	}
 	l = types.SizeOfStdTime(m.ExitedAt)
 	n += 1 + l + sovTask(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -826,6 +1050,11 @@ func (m *TaskIO) Size() (n int) {
 	}
 	if m.Terminal {
 		n += 2
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -849,6 +1078,11 @@ func (m *TaskExit) Size() (n int) {
 	}
 	l = types.SizeOfStdTime(m.ExitedAt)
 	n += 1 + l + sovTask(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -858,6 +1092,11 @@ func (m *TaskOOM) Size() (n int) {
 	l = len(m.ContainerID)
 	if l > 0 {
 		n += 1 + l + sovTask(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -872,6 +1111,11 @@ func (m *TaskExecAdded) Size() (n int) {
 	l = len(m.ExecID)
 	if l > 0 {
 		n += 1 + l + sovTask(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -890,6 +1134,11 @@ func (m *TaskExecStarted) Size() (n int) {
 	if m.Pid != 0 {
 		n += 1 + sovTask(uint64(m.Pid))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -900,6 +1149,11 @@ func (m *TaskPaused) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTask(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -909,6 +1163,11 @@ func (m *TaskResumed) Size() (n int) {
 	l = len(m.ContainerID)
 	if l > 0 {
 		n += 1 + l + sovTask(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -923,6 +1182,11 @@ func (m *TaskCheckpointed) Size() (n int) {
 	l = len(m.Checkpoint)
 	if l > 0 {
 		n += 1 + l + sovTask(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -951,6 +1215,7 @@ func (this *TaskCreate) String() string {
 		`IO:` + strings.Replace(fmt.Sprintf("%v", this.IO), "TaskIO", "TaskIO", 1) + `,`,
 		`Checkpoint:` + fmt.Sprintf("%v", this.Checkpoint) + `,`,
 		`Pid:` + fmt.Sprintf("%v", this.Pid) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -962,6 +1227,7 @@ func (this *TaskStart) String() string {
 	s := strings.Join([]string{`&TaskStart{`,
 		`ContainerID:` + fmt.Sprintf("%v", this.ContainerID) + `,`,
 		`Pid:` + fmt.Sprintf("%v", this.Pid) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -975,6 +1241,7 @@ func (this *TaskDelete) String() string {
 		`Pid:` + fmt.Sprintf("%v", this.Pid) + `,`,
 		`ExitStatus:` + fmt.Sprintf("%v", this.ExitStatus) + `,`,
 		`ExitedAt:` + strings.Replace(strings.Replace(this.ExitedAt.String(), "Timestamp", "google_protobuf2.Timestamp", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -988,6 +1255,7 @@ func (this *TaskIO) String() string {
 		`Stdout:` + fmt.Sprintf("%v", this.Stdout) + `,`,
 		`Stderr:` + fmt.Sprintf("%v", this.Stderr) + `,`,
 		`Terminal:` + fmt.Sprintf("%v", this.Terminal) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1002,6 +1270,7 @@ func (this *TaskExit) String() string {
 		`Pid:` + fmt.Sprintf("%v", this.Pid) + `,`,
 		`ExitStatus:` + fmt.Sprintf("%v", this.ExitStatus) + `,`,
 		`ExitedAt:` + strings.Replace(strings.Replace(this.ExitedAt.String(), "Timestamp", "google_protobuf2.Timestamp", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1012,6 +1281,7 @@ func (this *TaskOOM) String() string {
 	}
 	s := strings.Join([]string{`&TaskOOM{`,
 		`ContainerID:` + fmt.Sprintf("%v", this.ContainerID) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1023,6 +1293,7 @@ func (this *TaskExecAdded) String() string {
 	s := strings.Join([]string{`&TaskExecAdded{`,
 		`ContainerID:` + fmt.Sprintf("%v", this.ContainerID) + `,`,
 		`ExecID:` + fmt.Sprintf("%v", this.ExecID) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1035,6 +1306,7 @@ func (this *TaskExecStarted) String() string {
 		`ContainerID:` + fmt.Sprintf("%v", this.ContainerID) + `,`,
 		`ExecID:` + fmt.Sprintf("%v", this.ExecID) + `,`,
 		`Pid:` + fmt.Sprintf("%v", this.Pid) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1045,6 +1317,7 @@ func (this *TaskPaused) String() string {
 	}
 	s := strings.Join([]string{`&TaskPaused{`,
 		`ContainerID:` + fmt.Sprintf("%v", this.ContainerID) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1055,6 +1328,7 @@ func (this *TaskResumed) String() string {
 	}
 	s := strings.Join([]string{`&TaskResumed{`,
 		`ContainerID:` + fmt.Sprintf("%v", this.ContainerID) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1066,6 +1340,7 @@ func (this *TaskCheckpointed) String() string {
 	s := strings.Join([]string{`&TaskCheckpointed{`,
 		`ContainerID:` + fmt.Sprintf("%v", this.ContainerID) + `,`,
 		`Checkpoint:` + fmt.Sprintf("%v", this.Checkpoint) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1289,6 +1564,7 @@ func (m *TaskCreate) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1387,6 +1663,7 @@ func (m *TaskStart) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1534,6 +1811,7 @@ func (m *TaskDelete) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1691,6 +1969,7 @@ func (m *TaskIO) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1867,6 +2146,7 @@ func (m *TaskExit) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1946,6 +2226,7 @@ func (m *TaskOOM) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2054,6 +2335,7 @@ func (m *TaskExecAdded) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2181,6 +2463,7 @@ func (m *TaskExecStarted) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2260,6 +2543,7 @@ func (m *TaskPaused) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2339,6 +2623,7 @@ func (m *TaskResumed) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2447,6 +2732,7 @@ func (m *TaskCheckpointed) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

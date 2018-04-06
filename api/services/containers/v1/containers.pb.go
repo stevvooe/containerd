@@ -103,39 +103,95 @@ type Container struct {
 	// that should be unique against other extensions. When updating extension
 	// data, one should only update the specified extension using field paths
 	// to select a specific map key.
-	Extensions map[string]google_protobuf1.Any `protobuf:"bytes,10,rep,name=extensions" json:"extensions" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value"`
+	Extensions           map[string]google_protobuf1.Any `protobuf:"bytes,10,rep,name=extensions" json:"extensions" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value"`
+	XXX_NoUnkeyedLiteral struct{}                        `json:"-"`
+	XXX_unrecognized     []byte                          `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                           `json:"-"`
 }
 
 func (m *Container) Reset()                    { *m = Container{} }
 func (*Container) ProtoMessage()               {}
 func (*Container) Descriptor() ([]byte, []int) { return fileDescriptorContainers, []int{0} }
+func (dst *Container) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Container.Merge(dst, src)
+}
+func (m *Container) XXX_Size() int {
+	return xxx_messageInfo_Container.Size(m)
+}
+func (m *Container) XXX_DiscardUnknown() {
+	xxx_messageInfo_Container.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Container proto.InternalMessageInfo
 
 type Container_Runtime struct {
 	// Name is the name of the runtime.
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// Options specify additional runtime initialization options.
-	Options *google_protobuf1.Any `protobuf:"bytes,2,opt,name=options" json:"options,omitempty"`
+	Options              *google_protobuf1.Any `protobuf:"bytes,2,opt,name=options" json:"options,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
 func (m *Container_Runtime) Reset()                    { *m = Container_Runtime{} }
 func (*Container_Runtime) ProtoMessage()               {}
 func (*Container_Runtime) Descriptor() ([]byte, []int) { return fileDescriptorContainers, []int{0, 1} }
+func (dst *Container_Runtime) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Container_Runtime.Merge(dst, src)
+}
+func (m *Container_Runtime) XXX_Size() int {
+	return xxx_messageInfo_Container_Runtime.Size(m)
+}
+func (m *Container_Runtime) XXX_DiscardUnknown() {
+	xxx_messageInfo_Container_Runtime.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Container_Runtime proto.InternalMessageInfo
 
 type GetContainerRequest struct {
-	ID string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	ID                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetContainerRequest) Reset()                    { *m = GetContainerRequest{} }
 func (*GetContainerRequest) ProtoMessage()               {}
 func (*GetContainerRequest) Descriptor() ([]byte, []int) { return fileDescriptorContainers, []int{1} }
+func (dst *GetContainerRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetContainerRequest.Merge(dst, src)
+}
+func (m *GetContainerRequest) XXX_Size() int {
+	return xxx_messageInfo_GetContainerRequest.Size(m)
+}
+func (m *GetContainerRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetContainerRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetContainerRequest proto.InternalMessageInfo
 
 type GetContainerResponse struct {
-	Container Container `protobuf:"bytes,1,opt,name=container" json:"container"`
+	Container            Container `protobuf:"bytes,1,opt,name=container" json:"container"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *GetContainerResponse) Reset()                    { *m = GetContainerResponse{} }
 func (*GetContainerResponse) ProtoMessage()               {}
 func (*GetContainerResponse) Descriptor() ([]byte, []int) { return fileDescriptorContainers, []int{2} }
+func (dst *GetContainerResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetContainerResponse.Merge(dst, src)
+}
+func (m *GetContainerResponse) XXX_Size() int {
+	return xxx_messageInfo_GetContainerResponse.Size(m)
+}
+func (m *GetContainerResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetContainerResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetContainerResponse proto.InternalMessageInfo
 
 type ListContainersRequest struct {
 	// Filters contains one or more filters using the syntax defined in the
@@ -148,31 +204,76 @@ type ListContainersRequest struct {
 	//   filters[0] or filters[1] or ... or filters[n-1] or filters[n]
 	//
 	// If filters is zero-length or nil, all items will be returned.
-	Filters []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	Filters              []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListContainersRequest) Reset()                    { *m = ListContainersRequest{} }
 func (*ListContainersRequest) ProtoMessage()               {}
 func (*ListContainersRequest) Descriptor() ([]byte, []int) { return fileDescriptorContainers, []int{3} }
+func (dst *ListContainersRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListContainersRequest.Merge(dst, src)
+}
+func (m *ListContainersRequest) XXX_Size() int {
+	return xxx_messageInfo_ListContainersRequest.Size(m)
+}
+func (m *ListContainersRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListContainersRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListContainersRequest proto.InternalMessageInfo
 
 type ListContainersResponse struct {
-	Containers []Container `protobuf:"bytes,1,rep,name=containers" json:"containers"`
+	Containers           []Container `protobuf:"bytes,1,rep,name=containers" json:"containers"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
 func (m *ListContainersResponse) Reset()                    { *m = ListContainersResponse{} }
 func (*ListContainersResponse) ProtoMessage()               {}
 func (*ListContainersResponse) Descriptor() ([]byte, []int) { return fileDescriptorContainers, []int{4} }
+func (dst *ListContainersResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListContainersResponse.Merge(dst, src)
+}
+func (m *ListContainersResponse) XXX_Size() int {
+	return xxx_messageInfo_ListContainersResponse.Size(m)
+}
+func (m *ListContainersResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListContainersResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListContainersResponse proto.InternalMessageInfo
 
 type CreateContainerRequest struct {
-	Container Container `protobuf:"bytes,1,opt,name=container" json:"container"`
+	Container            Container `protobuf:"bytes,1,opt,name=container" json:"container"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *CreateContainerRequest) Reset()                    { *m = CreateContainerRequest{} }
 func (*CreateContainerRequest) ProtoMessage()               {}
 func (*CreateContainerRequest) Descriptor() ([]byte, []int) { return fileDescriptorContainers, []int{5} }
+func (dst *CreateContainerRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateContainerRequest.Merge(dst, src)
+}
+func (m *CreateContainerRequest) XXX_Size() int {
+	return xxx_messageInfo_CreateContainerRequest.Size(m)
+}
+func (m *CreateContainerRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateContainerRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateContainerRequest proto.InternalMessageInfo
 
 type CreateContainerResponse struct {
-	Container Container `protobuf:"bytes,1,opt,name=container" json:"container"`
+	Container            Container `protobuf:"bytes,1,opt,name=container" json:"container"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *CreateContainerResponse) Reset()      { *m = CreateContainerResponse{} }
@@ -180,6 +281,17 @@ func (*CreateContainerResponse) ProtoMessage() {}
 func (*CreateContainerResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptorContainers, []int{6}
 }
+func (dst *CreateContainerResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateContainerResponse.Merge(dst, src)
+}
+func (m *CreateContainerResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateContainerResponse.Size(m)
+}
+func (m *CreateContainerResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateContainerResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateContainerResponse proto.InternalMessageInfo
 
 // UpdateContainerRequest updates the metadata on one or more container.
 //
@@ -193,15 +305,32 @@ type UpdateContainerRequest struct {
 	Container Container `protobuf:"bytes,1,opt,name=container" json:"container"`
 	// UpdateMask specifies which fields to perform the update on. If empty,
 	// the operation applies to all fields.
-	UpdateMask *google_protobuf3.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	UpdateMask           *google_protobuf3.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
 }
 
 func (m *UpdateContainerRequest) Reset()                    { *m = UpdateContainerRequest{} }
 func (*UpdateContainerRequest) ProtoMessage()               {}
 func (*UpdateContainerRequest) Descriptor() ([]byte, []int) { return fileDescriptorContainers, []int{7} }
+func (dst *UpdateContainerRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateContainerRequest.Merge(dst, src)
+}
+func (m *UpdateContainerRequest) XXX_Size() int {
+	return xxx_messageInfo_UpdateContainerRequest.Size(m)
+}
+func (m *UpdateContainerRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateContainerRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateContainerRequest proto.InternalMessageInfo
 
 type UpdateContainerResponse struct {
-	Container Container `protobuf:"bytes,1,opt,name=container" json:"container"`
+	Container            Container `protobuf:"bytes,1,opt,name=container" json:"container"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *UpdateContainerResponse) Reset()      { *m = UpdateContainerResponse{} }
@@ -209,17 +338,44 @@ func (*UpdateContainerResponse) ProtoMessage() {}
 func (*UpdateContainerResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptorContainers, []int{8}
 }
+func (dst *UpdateContainerResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateContainerResponse.Merge(dst, src)
+}
+func (m *UpdateContainerResponse) XXX_Size() int {
+	return xxx_messageInfo_UpdateContainerResponse.Size(m)
+}
+func (m *UpdateContainerResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateContainerResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateContainerResponse proto.InternalMessageInfo
 
 type DeleteContainerRequest struct {
-	ID string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	ID                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteContainerRequest) Reset()                    { *m = DeleteContainerRequest{} }
 func (*DeleteContainerRequest) ProtoMessage()               {}
 func (*DeleteContainerRequest) Descriptor() ([]byte, []int) { return fileDescriptorContainers, []int{9} }
+func (dst *DeleteContainerRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteContainerRequest.Merge(dst, src)
+}
+func (m *DeleteContainerRequest) XXX_Size() int {
+	return xxx_messageInfo_DeleteContainerRequest.Size(m)
+}
+func (m *DeleteContainerRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteContainerRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteContainerRequest proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*Container)(nil), "containerd.services.containers.v1.Container")
+	proto.RegisterMapType((map[string]google_protobuf1.Any)(nil), "containerd.services.containers.v1.Container.ExtensionsEntry")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.containers.v1.Container.LabelsEntry")
 	proto.RegisterType((*Container_Runtime)(nil), "containerd.services.containers.v1.Container.Runtime")
 	proto.RegisterType((*GetContainerRequest)(nil), "containerd.services.containers.v1.GetContainerRequest")
 	proto.RegisterType((*GetContainerResponse)(nil), "containerd.services.containers.v1.GetContainerResponse")
@@ -554,6 +710,11 @@ func (m *Container) MarshalTo(dAtA []byte) (int, error) {
 			i += n5
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -588,6 +749,11 @@ func (m *Container_Runtime) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n6
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -611,6 +777,11 @@ func (m *GetContainerRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintContainers(dAtA, i, uint64(len(m.ID)))
 		i += copy(dAtA[i:], m.ID)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -638,6 +809,11 @@ func (m *GetContainerResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n7
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -671,6 +847,11 @@ func (m *ListContainersRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], s)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -701,6 +882,11 @@ func (m *ListContainersResponse) MarshalTo(dAtA []byte) (int, error) {
 			i += n
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -727,6 +913,11 @@ func (m *CreateContainerRequest) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n8
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -753,6 +944,11 @@ func (m *CreateContainerResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n9
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -789,6 +985,11 @@ func (m *UpdateContainerRequest) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n11
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -815,6 +1016,11 @@ func (m *UpdateContainerResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n12
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -838,6 +1044,11 @@ func (m *DeleteContainerRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintContainers(dAtA, i, uint64(len(m.ID)))
 		i += copy(dAtA[i:], m.ID)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -899,6 +1110,11 @@ func (m *Container) Size() (n int) {
 			n += mapEntrySize + 1 + sovContainers(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -913,6 +1129,11 @@ func (m *Container_Runtime) Size() (n int) {
 		l = m.Options.Size()
 		n += 1 + l + sovContainers(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -923,6 +1144,11 @@ func (m *GetContainerRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovContainers(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -931,6 +1157,11 @@ func (m *GetContainerResponse) Size() (n int) {
 	_ = l
 	l = m.Container.Size()
 	n += 1 + l + sovContainers(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -941,6 +1172,11 @@ func (m *ListContainersRequest) Size() (n int) {
 		for _, s := range m.Filters {
 			l = len(s)
 			n += 1 + l + sovContainers(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
 		}
 	}
 	return n
@@ -955,6 +1191,11 @@ func (m *ListContainersResponse) Size() (n int) {
 			n += 1 + l + sovContainers(uint64(l))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -963,6 +1204,11 @@ func (m *CreateContainerRequest) Size() (n int) {
 	_ = l
 	l = m.Container.Size()
 	n += 1 + l + sovContainers(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -971,6 +1217,11 @@ func (m *CreateContainerResponse) Size() (n int) {
 	_ = l
 	l = m.Container.Size()
 	n += 1 + l + sovContainers(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -983,6 +1234,11 @@ func (m *UpdateContainerRequest) Size() (n int) {
 		l = m.UpdateMask.Size()
 		n += 1 + l + sovContainers(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -991,6 +1247,11 @@ func (m *UpdateContainerResponse) Size() (n int) {
 	_ = l
 	l = m.Container.Size()
 	n += 1 + l + sovContainers(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1000,6 +1261,11 @@ func (m *DeleteContainerRequest) Size() (n int) {
 	l = len(m.ID)
 	if l > 0 {
 		n += 1 + l + sovContainers(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -1052,6 +1318,7 @@ func (this *Container) String() string {
 		`CreatedAt:` + strings.Replace(strings.Replace(this.CreatedAt.String(), "Timestamp", "google_protobuf4.Timestamp", 1), `&`, ``, 1) + `,`,
 		`UpdatedAt:` + strings.Replace(strings.Replace(this.UpdatedAt.String(), "Timestamp", "google_protobuf4.Timestamp", 1), `&`, ``, 1) + `,`,
 		`Extensions:` + mapStringForExtensions + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1063,6 +1330,7 @@ func (this *Container_Runtime) String() string {
 	s := strings.Join([]string{`&Container_Runtime{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
 		`Options:` + strings.Replace(fmt.Sprintf("%v", this.Options), "Any", "google_protobuf1.Any", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1073,6 +1341,7 @@ func (this *GetContainerRequest) String() string {
 	}
 	s := strings.Join([]string{`&GetContainerRequest{`,
 		`ID:` + fmt.Sprintf("%v", this.ID) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1083,6 +1352,7 @@ func (this *GetContainerResponse) String() string {
 	}
 	s := strings.Join([]string{`&GetContainerResponse{`,
 		`Container:` + strings.Replace(strings.Replace(this.Container.String(), "Container", "Container", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1093,6 +1363,7 @@ func (this *ListContainersRequest) String() string {
 	}
 	s := strings.Join([]string{`&ListContainersRequest{`,
 		`Filters:` + fmt.Sprintf("%v", this.Filters) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1103,6 +1374,7 @@ func (this *ListContainersResponse) String() string {
 	}
 	s := strings.Join([]string{`&ListContainersResponse{`,
 		`Containers:` + strings.Replace(strings.Replace(fmt.Sprintf("%v", this.Containers), "Container", "Container", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1113,6 +1385,7 @@ func (this *CreateContainerRequest) String() string {
 	}
 	s := strings.Join([]string{`&CreateContainerRequest{`,
 		`Container:` + strings.Replace(strings.Replace(this.Container.String(), "Container", "Container", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1123,6 +1396,7 @@ func (this *CreateContainerResponse) String() string {
 	}
 	s := strings.Join([]string{`&CreateContainerResponse{`,
 		`Container:` + strings.Replace(strings.Replace(this.Container.String(), "Container", "Container", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1134,6 +1408,7 @@ func (this *UpdateContainerRequest) String() string {
 	s := strings.Join([]string{`&UpdateContainerRequest{`,
 		`Container:` + strings.Replace(strings.Replace(this.Container.String(), "Container", "Container", 1), `&`, ``, 1) + `,`,
 		`UpdateMask:` + strings.Replace(fmt.Sprintf("%v", this.UpdateMask), "FieldMask", "google_protobuf3.FieldMask", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1144,6 +1419,7 @@ func (this *UpdateContainerResponse) String() string {
 	}
 	s := strings.Join([]string{`&UpdateContainerResponse{`,
 		`Container:` + strings.Replace(strings.Replace(this.Container.String(), "Container", "Container", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1154,6 +1430,7 @@ func (this *DeleteContainerRequest) String() string {
 	}
 	s := strings.Join([]string{`&DeleteContainerRequest{`,
 		`ID:` + fmt.Sprintf("%v", this.ID) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1690,6 +1967,7 @@ func (m *Container) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1802,6 +2080,7 @@ func (m *Container_Runtime) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1881,6 +2160,7 @@ func (m *GetContainerRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1961,6 +2241,7 @@ func (m *GetContainerResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2040,6 +2321,7 @@ func (m *ListContainersRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2121,6 +2403,7 @@ func (m *ListContainersResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2201,6 +2484,7 @@ func (m *CreateContainerRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2281,6 +2565,7 @@ func (m *CreateContainerResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2394,6 +2679,7 @@ func (m *UpdateContainerRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2474,6 +2760,7 @@ func (m *UpdateContainerResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2553,6 +2840,7 @@ func (m *DeleteContainerRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

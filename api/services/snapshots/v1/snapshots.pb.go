@@ -97,20 +97,48 @@ type PrepareSnapshotRequest struct {
 	// Labels are arbitrary data on snapshots.
 	//
 	// The combined size of a key/value pair cannot exceed 4096 bytes.
-	Labels map[string]string `protobuf:"bytes,4,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Labels               map[string]string `protobuf:"bytes,4,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *PrepareSnapshotRequest) Reset()                    { *m = PrepareSnapshotRequest{} }
 func (*PrepareSnapshotRequest) ProtoMessage()               {}
 func (*PrepareSnapshotRequest) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{0} }
+func (dst *PrepareSnapshotRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PrepareSnapshotRequest.Merge(dst, src)
+}
+func (m *PrepareSnapshotRequest) XXX_Size() int {
+	return xxx_messageInfo_PrepareSnapshotRequest.Size(m)
+}
+func (m *PrepareSnapshotRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_PrepareSnapshotRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PrepareSnapshotRequest proto.InternalMessageInfo
 
 type PrepareSnapshotResponse struct {
-	Mounts []*containerd_types.Mount `protobuf:"bytes,1,rep,name=mounts" json:"mounts,omitempty"`
+	Mounts               []*containerd_types.Mount `protobuf:"bytes,1,rep,name=mounts" json:"mounts,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
 }
 
 func (m *PrepareSnapshotResponse) Reset()                    { *m = PrepareSnapshotResponse{} }
 func (*PrepareSnapshotResponse) ProtoMessage()               {}
 func (*PrepareSnapshotResponse) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{1} }
+func (dst *PrepareSnapshotResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PrepareSnapshotResponse.Merge(dst, src)
+}
+func (m *PrepareSnapshotResponse) XXX_Size() int {
+	return xxx_messageInfo_PrepareSnapshotResponse.Size(m)
+}
+func (m *PrepareSnapshotResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_PrepareSnapshotResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PrepareSnapshotResponse proto.InternalMessageInfo
 
 type ViewSnapshotRequest struct {
 	Snapshotter string `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
@@ -119,46 +147,116 @@ type ViewSnapshotRequest struct {
 	// Labels are arbitrary data on snapshots.
 	//
 	// The combined size of a key/value pair cannot exceed 4096 bytes.
-	Labels map[string]string `protobuf:"bytes,4,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Labels               map[string]string `protobuf:"bytes,4,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *ViewSnapshotRequest) Reset()                    { *m = ViewSnapshotRequest{} }
 func (*ViewSnapshotRequest) ProtoMessage()               {}
 func (*ViewSnapshotRequest) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{2} }
+func (dst *ViewSnapshotRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ViewSnapshotRequest.Merge(dst, src)
+}
+func (m *ViewSnapshotRequest) XXX_Size() int {
+	return xxx_messageInfo_ViewSnapshotRequest.Size(m)
+}
+func (m *ViewSnapshotRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ViewSnapshotRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ViewSnapshotRequest proto.InternalMessageInfo
 
 type ViewSnapshotResponse struct {
-	Mounts []*containerd_types.Mount `protobuf:"bytes,1,rep,name=mounts" json:"mounts,omitempty"`
+	Mounts               []*containerd_types.Mount `protobuf:"bytes,1,rep,name=mounts" json:"mounts,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
 }
 
 func (m *ViewSnapshotResponse) Reset()                    { *m = ViewSnapshotResponse{} }
 func (*ViewSnapshotResponse) ProtoMessage()               {}
 func (*ViewSnapshotResponse) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{3} }
+func (dst *ViewSnapshotResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ViewSnapshotResponse.Merge(dst, src)
+}
+func (m *ViewSnapshotResponse) XXX_Size() int {
+	return xxx_messageInfo_ViewSnapshotResponse.Size(m)
+}
+func (m *ViewSnapshotResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ViewSnapshotResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ViewSnapshotResponse proto.InternalMessageInfo
 
 type MountsRequest struct {
-	Snapshotter string `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
-	Key         string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+	Snapshotter          string   `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
+	Key                  string   `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *MountsRequest) Reset()                    { *m = MountsRequest{} }
 func (*MountsRequest) ProtoMessage()               {}
 func (*MountsRequest) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{4} }
+func (dst *MountsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MountsRequest.Merge(dst, src)
+}
+func (m *MountsRequest) XXX_Size() int {
+	return xxx_messageInfo_MountsRequest.Size(m)
+}
+func (m *MountsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_MountsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MountsRequest proto.InternalMessageInfo
 
 type MountsResponse struct {
-	Mounts []*containerd_types.Mount `protobuf:"bytes,1,rep,name=mounts" json:"mounts,omitempty"`
+	Mounts               []*containerd_types.Mount `protobuf:"bytes,1,rep,name=mounts" json:"mounts,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
 }
 
 func (m *MountsResponse) Reset()                    { *m = MountsResponse{} }
 func (*MountsResponse) ProtoMessage()               {}
 func (*MountsResponse) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{5} }
+func (dst *MountsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MountsResponse.Merge(dst, src)
+}
+func (m *MountsResponse) XXX_Size() int {
+	return xxx_messageInfo_MountsResponse.Size(m)
+}
+func (m *MountsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MountsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MountsResponse proto.InternalMessageInfo
 
 type RemoveSnapshotRequest struct {
-	Snapshotter string `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
-	Key         string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+	Snapshotter          string   `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
+	Key                  string   `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *RemoveSnapshotRequest) Reset()                    { *m = RemoveSnapshotRequest{} }
 func (*RemoveSnapshotRequest) ProtoMessage()               {}
 func (*RemoveSnapshotRequest) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{6} }
+func (dst *RemoveSnapshotRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveSnapshotRequest.Merge(dst, src)
+}
+func (m *RemoveSnapshotRequest) XXX_Size() int {
+	return xxx_messageInfo_RemoveSnapshotRequest.Size(m)
+}
+func (m *RemoveSnapshotRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveSnapshotRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RemoveSnapshotRequest proto.InternalMessageInfo
 
 type CommitSnapshotRequest struct {
 	Snapshotter string `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
@@ -167,21 +265,49 @@ type CommitSnapshotRequest struct {
 	// Labels are arbitrary data on snapshots.
 	//
 	// The combined size of a key/value pair cannot exceed 4096 bytes.
-	Labels map[string]string `protobuf:"bytes,4,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Labels               map[string]string `protobuf:"bytes,4,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *CommitSnapshotRequest) Reset()                    { *m = CommitSnapshotRequest{} }
 func (*CommitSnapshotRequest) ProtoMessage()               {}
 func (*CommitSnapshotRequest) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{7} }
+func (dst *CommitSnapshotRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CommitSnapshotRequest.Merge(dst, src)
+}
+func (m *CommitSnapshotRequest) XXX_Size() int {
+	return xxx_messageInfo_CommitSnapshotRequest.Size(m)
+}
+func (m *CommitSnapshotRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CommitSnapshotRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CommitSnapshotRequest proto.InternalMessageInfo
 
 type StatSnapshotRequest struct {
-	Snapshotter string `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
-	Key         string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+	Snapshotter          string   `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
+	Key                  string   `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *StatSnapshotRequest) Reset()                    { *m = StatSnapshotRequest{} }
 func (*StatSnapshotRequest) ProtoMessage()               {}
 func (*StatSnapshotRequest) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{8} }
+func (dst *StatSnapshotRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StatSnapshotRequest.Merge(dst, src)
+}
+func (m *StatSnapshotRequest) XXX_Size() int {
+	return xxx_messageInfo_StatSnapshotRequest.Size(m)
+}
+func (m *StatSnapshotRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_StatSnapshotRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StatSnapshotRequest proto.InternalMessageInfo
 
 type Info struct {
 	Name   string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
@@ -194,20 +320,48 @@ type Info struct {
 	// Labels are arbitrary data on snapshots.
 	//
 	// The combined size of a key/value pair cannot exceed 4096 bytes.
-	Labels map[string]string `protobuf:"bytes,6,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Labels               map[string]string `protobuf:"bytes,6,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *Info) Reset()                    { *m = Info{} }
 func (*Info) ProtoMessage()               {}
 func (*Info) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{9} }
+func (dst *Info) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Info.Merge(dst, src)
+}
+func (m *Info) XXX_Size() int {
+	return xxx_messageInfo_Info.Size(m)
+}
+func (m *Info) XXX_DiscardUnknown() {
+	xxx_messageInfo_Info.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Info proto.InternalMessageInfo
 
 type StatSnapshotResponse struct {
-	Info Info `protobuf:"bytes,1,opt,name=info" json:"info"`
+	Info                 Info     `protobuf:"bytes,1,opt,name=info" json:"info"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *StatSnapshotResponse) Reset()                    { *m = StatSnapshotResponse{} }
 func (*StatSnapshotResponse) ProtoMessage()               {}
 func (*StatSnapshotResponse) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{10} }
+func (dst *StatSnapshotResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StatSnapshotResponse.Merge(dst, src)
+}
+func (m *StatSnapshotResponse) XXX_Size() int {
+	return xxx_messageInfo_StatSnapshotResponse.Size(m)
+}
+func (m *StatSnapshotResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_StatSnapshotResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StatSnapshotResponse proto.InternalMessageInfo
 
 type UpdateSnapshotRequest struct {
 	Snapshotter string `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
@@ -218,66 +372,154 @@ type UpdateSnapshotRequest struct {
 	// In info, Name, Parent, Kind, Created are immutable,
 	// other field may be updated using this mask.
 	// If no mask is provided, all mutable field are updated.
-	UpdateMask *google_protobuf2.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	UpdateMask           *google_protobuf2.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
 }
 
 func (m *UpdateSnapshotRequest) Reset()                    { *m = UpdateSnapshotRequest{} }
 func (*UpdateSnapshotRequest) ProtoMessage()               {}
 func (*UpdateSnapshotRequest) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{11} }
+func (dst *UpdateSnapshotRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateSnapshotRequest.Merge(dst, src)
+}
+func (m *UpdateSnapshotRequest) XXX_Size() int {
+	return xxx_messageInfo_UpdateSnapshotRequest.Size(m)
+}
+func (m *UpdateSnapshotRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateSnapshotRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateSnapshotRequest proto.InternalMessageInfo
 
 type UpdateSnapshotResponse struct {
-	Info Info `protobuf:"bytes,1,opt,name=info" json:"info"`
+	Info                 Info     `protobuf:"bytes,1,opt,name=info" json:"info"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *UpdateSnapshotResponse) Reset()                    { *m = UpdateSnapshotResponse{} }
 func (*UpdateSnapshotResponse) ProtoMessage()               {}
 func (*UpdateSnapshotResponse) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{12} }
+func (dst *UpdateSnapshotResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateSnapshotResponse.Merge(dst, src)
+}
+func (m *UpdateSnapshotResponse) XXX_Size() int {
+	return xxx_messageInfo_UpdateSnapshotResponse.Size(m)
+}
+func (m *UpdateSnapshotResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateSnapshotResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateSnapshotResponse proto.InternalMessageInfo
 
 type ListSnapshotsRequest struct {
-	Snapshotter string `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
+	Snapshotter          string   `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListSnapshotsRequest) Reset()                    { *m = ListSnapshotsRequest{} }
 func (*ListSnapshotsRequest) ProtoMessage()               {}
 func (*ListSnapshotsRequest) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{13} }
+func (dst *ListSnapshotsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListSnapshotsRequest.Merge(dst, src)
+}
+func (m *ListSnapshotsRequest) XXX_Size() int {
+	return xxx_messageInfo_ListSnapshotsRequest.Size(m)
+}
+func (m *ListSnapshotsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListSnapshotsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListSnapshotsRequest proto.InternalMessageInfo
 
 type ListSnapshotsResponse struct {
-	Info []Info `protobuf:"bytes,1,rep,name=info" json:"info"`
+	Info                 []Info   `protobuf:"bytes,1,rep,name=info" json:"info"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListSnapshotsResponse) Reset()                    { *m = ListSnapshotsResponse{} }
 func (*ListSnapshotsResponse) ProtoMessage()               {}
 func (*ListSnapshotsResponse) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{14} }
+func (dst *ListSnapshotsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListSnapshotsResponse.Merge(dst, src)
+}
+func (m *ListSnapshotsResponse) XXX_Size() int {
+	return xxx_messageInfo_ListSnapshotsResponse.Size(m)
+}
+func (m *ListSnapshotsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListSnapshotsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListSnapshotsResponse proto.InternalMessageInfo
 
 type UsageRequest struct {
-	Snapshotter string `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
-	Key         string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+	Snapshotter          string   `protobuf:"bytes,1,opt,name=snapshotter,proto3" json:"snapshotter,omitempty"`
+	Key                  string   `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *UsageRequest) Reset()                    { *m = UsageRequest{} }
 func (*UsageRequest) ProtoMessage()               {}
 func (*UsageRequest) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{15} }
+func (dst *UsageRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UsageRequest.Merge(dst, src)
+}
+func (m *UsageRequest) XXX_Size() int {
+	return xxx_messageInfo_UsageRequest.Size(m)
+}
+func (m *UsageRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UsageRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UsageRequest proto.InternalMessageInfo
 
 type UsageResponse struct {
-	Size_  int64 `protobuf:"varint,1,opt,name=size,proto3" json:"size,omitempty"`
-	Inodes int64 `protobuf:"varint,2,opt,name=inodes,proto3" json:"inodes,omitempty"`
+	Size_                int64    `protobuf:"varint,1,opt,name=size,proto3" json:"size,omitempty"`
+	Inodes               int64    `protobuf:"varint,2,opt,name=inodes,proto3" json:"inodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *UsageResponse) Reset()                    { *m = UsageResponse{} }
 func (*UsageResponse) ProtoMessage()               {}
 func (*UsageResponse) Descriptor() ([]byte, []int) { return fileDescriptorSnapshots, []int{16} }
+func (dst *UsageResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UsageResponse.Merge(dst, src)
+}
+func (m *UsageResponse) XXX_Size() int {
+	return xxx_messageInfo_UsageResponse.Size(m)
+}
+func (m *UsageResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UsageResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UsageResponse proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*PrepareSnapshotRequest)(nil), "containerd.services.snapshots.v1.PrepareSnapshotRequest")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.snapshots.v1.PrepareSnapshotRequest.LabelsEntry")
 	proto.RegisterType((*PrepareSnapshotResponse)(nil), "containerd.services.snapshots.v1.PrepareSnapshotResponse")
 	proto.RegisterType((*ViewSnapshotRequest)(nil), "containerd.services.snapshots.v1.ViewSnapshotRequest")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.snapshots.v1.ViewSnapshotRequest.LabelsEntry")
 	proto.RegisterType((*ViewSnapshotResponse)(nil), "containerd.services.snapshots.v1.ViewSnapshotResponse")
 	proto.RegisterType((*MountsRequest)(nil), "containerd.services.snapshots.v1.MountsRequest")
 	proto.RegisterType((*MountsResponse)(nil), "containerd.services.snapshots.v1.MountsResponse")
 	proto.RegisterType((*RemoveSnapshotRequest)(nil), "containerd.services.snapshots.v1.RemoveSnapshotRequest")
 	proto.RegisterType((*CommitSnapshotRequest)(nil), "containerd.services.snapshots.v1.CommitSnapshotRequest")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.snapshots.v1.CommitSnapshotRequest.LabelsEntry")
 	proto.RegisterType((*StatSnapshotRequest)(nil), "containerd.services.snapshots.v1.StatSnapshotRequest")
 	proto.RegisterType((*Info)(nil), "containerd.services.snapshots.v1.Info")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.snapshots.v1.Info.LabelsEntry")
 	proto.RegisterType((*StatSnapshotResponse)(nil), "containerd.services.snapshots.v1.StatSnapshotResponse")
 	proto.RegisterType((*UpdateSnapshotRequest)(nil), "containerd.services.snapshots.v1.UpdateSnapshotRequest")
 	proto.RegisterType((*UpdateSnapshotResponse)(nil), "containerd.services.snapshots.v1.UpdateSnapshotResponse")
@@ -702,6 +944,11 @@ func (m *PrepareSnapshotRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -730,6 +977,11 @@ func (m *PrepareSnapshotResponse) MarshalTo(dAtA []byte) (int, error) {
 				return 0, err
 			}
 			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
 		}
 	}
 	return i, nil
@@ -785,6 +1037,11 @@ func (m *ViewSnapshotRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -813,6 +1070,11 @@ func (m *ViewSnapshotResponse) MarshalTo(dAtA []byte) (int, error) {
 				return 0, err
 			}
 			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
 		}
 	}
 	return i, nil
@@ -845,6 +1107,11 @@ func (m *MountsRequest) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintSnapshots(dAtA, i, uint64(len(m.Key)))
 		i += copy(dAtA[i:], m.Key)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -873,6 +1140,11 @@ func (m *MountsResponse) MarshalTo(dAtA []byte) (int, error) {
 				return 0, err
 			}
 			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
 		}
 	}
 	return i, nil
@@ -904,6 +1176,11 @@ func (m *RemoveSnapshotRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintSnapshots(dAtA, i, uint64(len(m.Key)))
 		i += copy(dAtA[i:], m.Key)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -958,6 +1235,11 @@ func (m *CommitSnapshotRequest) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -987,6 +1269,11 @@ func (m *StatSnapshotRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintSnapshots(dAtA, i, uint64(len(m.Key)))
 		i += copy(dAtA[i:], m.Key)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -1056,6 +1343,11 @@ func (m *Info) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1082,6 +1374,11 @@ func (m *StatSnapshotResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n3
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1124,6 +1421,11 @@ func (m *UpdateSnapshotRequest) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n5
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1150,6 +1452,11 @@ func (m *UpdateSnapshotResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n6
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1173,6 +1480,11 @@ func (m *ListSnapshotsRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintSnapshots(dAtA, i, uint64(len(m.Snapshotter)))
 		i += copy(dAtA[i:], m.Snapshotter)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -1202,6 +1514,11 @@ func (m *ListSnapshotsResponse) MarshalTo(dAtA []byte) (int, error) {
 				return 0, err
 			}
 			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
 		}
 	}
 	return i, nil
@@ -1234,6 +1551,11 @@ func (m *UsageRequest) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintSnapshots(dAtA, i, uint64(len(m.Key)))
 		i += copy(dAtA[i:], m.Key)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -1261,6 +1583,11 @@ func (m *UsageResponse) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x10
 		i++
 		i = encodeVarintSnapshots(dAtA, i, uint64(m.Inodes))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -1297,6 +1624,11 @@ func (m *PrepareSnapshotRequest) Size() (n int) {
 			n += mapEntrySize + 1 + sovSnapshots(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1307,6 +1639,11 @@ func (m *PrepareSnapshotResponse) Size() (n int) {
 		for _, e := range m.Mounts {
 			l = e.Size()
 			n += 1 + l + sovSnapshots(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
 		}
 	}
 	return n
@@ -1335,6 +1672,11 @@ func (m *ViewSnapshotRequest) Size() (n int) {
 			n += mapEntrySize + 1 + sovSnapshots(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1345,6 +1687,11 @@ func (m *ViewSnapshotResponse) Size() (n int) {
 		for _, e := range m.Mounts {
 			l = e.Size()
 			n += 1 + l + sovSnapshots(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
 		}
 	}
 	return n
@@ -1361,6 +1708,11 @@ func (m *MountsRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovSnapshots(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1371,6 +1723,11 @@ func (m *MountsResponse) Size() (n int) {
 		for _, e := range m.Mounts {
 			l = e.Size()
 			n += 1 + l + sovSnapshots(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
 		}
 	}
 	return n
@@ -1386,6 +1743,11 @@ func (m *RemoveSnapshotRequest) Size() (n int) {
 	l = len(m.Key)
 	if l > 0 {
 		n += 1 + l + sovSnapshots(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -1413,6 +1775,11 @@ func (m *CommitSnapshotRequest) Size() (n int) {
 			n += mapEntrySize + 1 + sovSnapshots(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1426,6 +1793,11 @@ func (m *StatSnapshotRequest) Size() (n int) {
 	l = len(m.Key)
 	if l > 0 {
 		n += 1 + l + sovSnapshots(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -1456,6 +1828,11 @@ func (m *Info) Size() (n int) {
 			n += mapEntrySize + 1 + sovSnapshots(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1464,6 +1841,11 @@ func (m *StatSnapshotResponse) Size() (n int) {
 	_ = l
 	l = m.Info.Size()
 	n += 1 + l + sovSnapshots(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1480,6 +1862,11 @@ func (m *UpdateSnapshotRequest) Size() (n int) {
 		l = m.UpdateMask.Size()
 		n += 1 + l + sovSnapshots(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1488,6 +1875,11 @@ func (m *UpdateSnapshotResponse) Size() (n int) {
 	_ = l
 	l = m.Info.Size()
 	n += 1 + l + sovSnapshots(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1497,6 +1889,11 @@ func (m *ListSnapshotsRequest) Size() (n int) {
 	l = len(m.Snapshotter)
 	if l > 0 {
 		n += 1 + l + sovSnapshots(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -1508,6 +1905,11 @@ func (m *ListSnapshotsResponse) Size() (n int) {
 		for _, e := range m.Info {
 			l = e.Size()
 			n += 1 + l + sovSnapshots(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
 		}
 	}
 	return n
@@ -1524,6 +1926,11 @@ func (m *UsageRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovSnapshots(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -1535,6 +1942,11 @@ func (m *UsageResponse) Size() (n int) {
 	}
 	if m.Inodes != 0 {
 		n += 1 + sovSnapshots(uint64(m.Inodes))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -1571,6 +1983,7 @@ func (this *PrepareSnapshotRequest) String() string {
 		`Key:` + fmt.Sprintf("%v", this.Key) + `,`,
 		`Parent:` + fmt.Sprintf("%v", this.Parent) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1581,6 +1994,7 @@ func (this *PrepareSnapshotResponse) String() string {
 	}
 	s := strings.Join([]string{`&PrepareSnapshotResponse{`,
 		`Mounts:` + strings.Replace(fmt.Sprintf("%v", this.Mounts), "Mount", "containerd_types.Mount", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1604,6 +2018,7 @@ func (this *ViewSnapshotRequest) String() string {
 		`Key:` + fmt.Sprintf("%v", this.Key) + `,`,
 		`Parent:` + fmt.Sprintf("%v", this.Parent) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1614,6 +2029,7 @@ func (this *ViewSnapshotResponse) String() string {
 	}
 	s := strings.Join([]string{`&ViewSnapshotResponse{`,
 		`Mounts:` + strings.Replace(fmt.Sprintf("%v", this.Mounts), "Mount", "containerd_types.Mount", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1625,6 +2041,7 @@ func (this *MountsRequest) String() string {
 	s := strings.Join([]string{`&MountsRequest{`,
 		`Snapshotter:` + fmt.Sprintf("%v", this.Snapshotter) + `,`,
 		`Key:` + fmt.Sprintf("%v", this.Key) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1635,6 +2052,7 @@ func (this *MountsResponse) String() string {
 	}
 	s := strings.Join([]string{`&MountsResponse{`,
 		`Mounts:` + strings.Replace(fmt.Sprintf("%v", this.Mounts), "Mount", "containerd_types.Mount", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1646,6 +2064,7 @@ func (this *RemoveSnapshotRequest) String() string {
 	s := strings.Join([]string{`&RemoveSnapshotRequest{`,
 		`Snapshotter:` + fmt.Sprintf("%v", this.Snapshotter) + `,`,
 		`Key:` + fmt.Sprintf("%v", this.Key) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1669,6 +2088,7 @@ func (this *CommitSnapshotRequest) String() string {
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
 		`Key:` + fmt.Sprintf("%v", this.Key) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1680,6 +2100,7 @@ func (this *StatSnapshotRequest) String() string {
 	s := strings.Join([]string{`&StatSnapshotRequest{`,
 		`Snapshotter:` + fmt.Sprintf("%v", this.Snapshotter) + `,`,
 		`Key:` + fmt.Sprintf("%v", this.Key) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1705,6 +2126,7 @@ func (this *Info) String() string {
 		`CreatedAt:` + strings.Replace(strings.Replace(this.CreatedAt.String(), "Timestamp", "google_protobuf3.Timestamp", 1), `&`, ``, 1) + `,`,
 		`UpdatedAt:` + strings.Replace(strings.Replace(this.UpdatedAt.String(), "Timestamp", "google_protobuf3.Timestamp", 1), `&`, ``, 1) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1715,6 +2137,7 @@ func (this *StatSnapshotResponse) String() string {
 	}
 	s := strings.Join([]string{`&StatSnapshotResponse{`,
 		`Info:` + strings.Replace(strings.Replace(this.Info.String(), "Info", "Info", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1727,6 +2150,7 @@ func (this *UpdateSnapshotRequest) String() string {
 		`Snapshotter:` + fmt.Sprintf("%v", this.Snapshotter) + `,`,
 		`Info:` + strings.Replace(strings.Replace(this.Info.String(), "Info", "Info", 1), `&`, ``, 1) + `,`,
 		`UpdateMask:` + strings.Replace(fmt.Sprintf("%v", this.UpdateMask), "FieldMask", "google_protobuf2.FieldMask", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1737,6 +2161,7 @@ func (this *UpdateSnapshotResponse) String() string {
 	}
 	s := strings.Join([]string{`&UpdateSnapshotResponse{`,
 		`Info:` + strings.Replace(strings.Replace(this.Info.String(), "Info", "Info", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1747,6 +2172,7 @@ func (this *ListSnapshotsRequest) String() string {
 	}
 	s := strings.Join([]string{`&ListSnapshotsRequest{`,
 		`Snapshotter:` + fmt.Sprintf("%v", this.Snapshotter) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1757,6 +2183,7 @@ func (this *ListSnapshotsResponse) String() string {
 	}
 	s := strings.Join([]string{`&ListSnapshotsResponse{`,
 		`Info:` + strings.Replace(strings.Replace(fmt.Sprintf("%v", this.Info), "Info", "Info", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1768,6 +2195,7 @@ func (this *UsageRequest) String() string {
 	s := strings.Join([]string{`&UsageRequest{`,
 		`Snapshotter:` + fmt.Sprintf("%v", this.Snapshotter) + `,`,
 		`Key:` + fmt.Sprintf("%v", this.Key) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1779,6 +2207,7 @@ func (this *UsageResponse) String() string {
 	s := strings.Join([]string{`&UsageResponse{`,
 		`Size_:` + fmt.Sprintf("%v", this.Size_) + `,`,
 		`Inodes:` + fmt.Sprintf("%v", this.Inodes) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -2037,6 +2466,7 @@ func (m *PrepareSnapshotRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2118,6 +2548,7 @@ func (m *PrepareSnapshotResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2373,6 +2804,7 @@ func (m *ViewSnapshotRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2454,6 +2886,7 @@ func (m *ViewSnapshotResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2562,6 +2995,7 @@ func (m *MountsRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2643,6 +3077,7 @@ func (m *MountsResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2751,6 +3186,7 @@ func (m *RemoveSnapshotRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3006,6 +3442,7 @@ func (m *CommitSnapshotRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3114,6 +3551,7 @@ func (m *StatSnapshotRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3419,6 +3857,7 @@ func (m *Info) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3499,6 +3938,7 @@ func (m *StatSnapshotResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3641,6 +4081,7 @@ func (m *UpdateSnapshotRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3721,6 +4162,7 @@ func (m *UpdateSnapshotResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3800,6 +4242,7 @@ func (m *ListSnapshotsRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3881,6 +4324,7 @@ func (m *ListSnapshotsResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3989,6 +4433,7 @@ func (m *UsageRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -4077,6 +4522,7 @@ func (m *UsageResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

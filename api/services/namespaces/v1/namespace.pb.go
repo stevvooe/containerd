@@ -57,60 +57,158 @@ type Namespace struct {
 	//
 	// Note that to add a new value to this field, read the existing set and
 	// include the entire result in the update call.
-	Labels map[string]string `protobuf:"bytes,2,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Labels               map[string]string `protobuf:"bytes,2,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *Namespace) Reset()                    { *m = Namespace{} }
 func (*Namespace) ProtoMessage()               {}
 func (*Namespace) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{0} }
+func (dst *Namespace) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Namespace.Merge(dst, src)
+}
+func (m *Namespace) XXX_Size() int {
+	return xxx_messageInfo_Namespace.Size(m)
+}
+func (m *Namespace) XXX_DiscardUnknown() {
+	xxx_messageInfo_Namespace.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Namespace proto.InternalMessageInfo
 
 type GetNamespaceRequest struct {
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetNamespaceRequest) Reset()                    { *m = GetNamespaceRequest{} }
 func (*GetNamespaceRequest) ProtoMessage()               {}
 func (*GetNamespaceRequest) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{1} }
+func (dst *GetNamespaceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetNamespaceRequest.Merge(dst, src)
+}
+func (m *GetNamespaceRequest) XXX_Size() int {
+	return xxx_messageInfo_GetNamespaceRequest.Size(m)
+}
+func (m *GetNamespaceRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetNamespaceRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetNamespaceRequest proto.InternalMessageInfo
 
 type GetNamespaceResponse struct {
-	Namespace Namespace `protobuf:"bytes,1,opt,name=namespace" json:"namespace"`
+	Namespace            Namespace `protobuf:"bytes,1,opt,name=namespace" json:"namespace"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *GetNamespaceResponse) Reset()                    { *m = GetNamespaceResponse{} }
 func (*GetNamespaceResponse) ProtoMessage()               {}
 func (*GetNamespaceResponse) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{2} }
+func (dst *GetNamespaceResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetNamespaceResponse.Merge(dst, src)
+}
+func (m *GetNamespaceResponse) XXX_Size() int {
+	return xxx_messageInfo_GetNamespaceResponse.Size(m)
+}
+func (m *GetNamespaceResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetNamespaceResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetNamespaceResponse proto.InternalMessageInfo
 
 type ListNamespacesRequest struct {
-	Filter string `protobuf:"bytes,1,opt,name=filter,proto3" json:"filter,omitempty"`
+	Filter               string   `protobuf:"bytes,1,opt,name=filter,proto3" json:"filter,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ListNamespacesRequest) Reset()                    { *m = ListNamespacesRequest{} }
 func (*ListNamespacesRequest) ProtoMessage()               {}
 func (*ListNamespacesRequest) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{3} }
+func (dst *ListNamespacesRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListNamespacesRequest.Merge(dst, src)
+}
+func (m *ListNamespacesRequest) XXX_Size() int {
+	return xxx_messageInfo_ListNamespacesRequest.Size(m)
+}
+func (m *ListNamespacesRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListNamespacesRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListNamespacesRequest proto.InternalMessageInfo
 
 type ListNamespacesResponse struct {
-	Namespaces []Namespace `protobuf:"bytes,1,rep,name=namespaces" json:"namespaces"`
+	Namespaces           []Namespace `protobuf:"bytes,1,rep,name=namespaces" json:"namespaces"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
 func (m *ListNamespacesResponse) Reset()                    { *m = ListNamespacesResponse{} }
 func (*ListNamespacesResponse) ProtoMessage()               {}
 func (*ListNamespacesResponse) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{4} }
+func (dst *ListNamespacesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListNamespacesResponse.Merge(dst, src)
+}
+func (m *ListNamespacesResponse) XXX_Size() int {
+	return xxx_messageInfo_ListNamespacesResponse.Size(m)
+}
+func (m *ListNamespacesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListNamespacesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListNamespacesResponse proto.InternalMessageInfo
 
 type CreateNamespaceRequest struct {
-	Namespace Namespace `protobuf:"bytes,1,opt,name=namespace" json:"namespace"`
+	Namespace            Namespace `protobuf:"bytes,1,opt,name=namespace" json:"namespace"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *CreateNamespaceRequest) Reset()                    { *m = CreateNamespaceRequest{} }
 func (*CreateNamespaceRequest) ProtoMessage()               {}
 func (*CreateNamespaceRequest) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{5} }
+func (dst *CreateNamespaceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateNamespaceRequest.Merge(dst, src)
+}
+func (m *CreateNamespaceRequest) XXX_Size() int {
+	return xxx_messageInfo_CreateNamespaceRequest.Size(m)
+}
+func (m *CreateNamespaceRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateNamespaceRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateNamespaceRequest proto.InternalMessageInfo
 
 type CreateNamespaceResponse struct {
-	Namespace Namespace `protobuf:"bytes,1,opt,name=namespace" json:"namespace"`
+	Namespace            Namespace `protobuf:"bytes,1,opt,name=namespace" json:"namespace"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *CreateNamespaceResponse) Reset()                    { *m = CreateNamespaceResponse{} }
 func (*CreateNamespaceResponse) ProtoMessage()               {}
 func (*CreateNamespaceResponse) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{6} }
+func (dst *CreateNamespaceResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateNamespaceResponse.Merge(dst, src)
+}
+func (m *CreateNamespaceResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateNamespaceResponse.Size(m)
+}
+func (m *CreateNamespaceResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateNamespaceResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateNamespaceResponse proto.InternalMessageInfo
 
 // UpdateNamespaceRequest updates the metadata for a namespace.
 //
@@ -128,31 +226,74 @@ type UpdateNamespaceRequest struct {
 	// For the most part, this applies only to selectively updating labels on
 	// the namespace. While field masks are typically limited to ascii alphas
 	// and digits, we just take everything after the "labels." as the map key.
-	UpdateMask *google_protobuf2.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	UpdateMask           *google_protobuf2.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
 }
 
 func (m *UpdateNamespaceRequest) Reset()                    { *m = UpdateNamespaceRequest{} }
 func (*UpdateNamespaceRequest) ProtoMessage()               {}
 func (*UpdateNamespaceRequest) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{7} }
+func (dst *UpdateNamespaceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateNamespaceRequest.Merge(dst, src)
+}
+func (m *UpdateNamespaceRequest) XXX_Size() int {
+	return xxx_messageInfo_UpdateNamespaceRequest.Size(m)
+}
+func (m *UpdateNamespaceRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateNamespaceRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateNamespaceRequest proto.InternalMessageInfo
 
 type UpdateNamespaceResponse struct {
-	Namespace Namespace `protobuf:"bytes,1,opt,name=namespace" json:"namespace"`
+	Namespace            Namespace `protobuf:"bytes,1,opt,name=namespace" json:"namespace"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *UpdateNamespaceResponse) Reset()                    { *m = UpdateNamespaceResponse{} }
 func (*UpdateNamespaceResponse) ProtoMessage()               {}
 func (*UpdateNamespaceResponse) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{8} }
+func (dst *UpdateNamespaceResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateNamespaceResponse.Merge(dst, src)
+}
+func (m *UpdateNamespaceResponse) XXX_Size() int {
+	return xxx_messageInfo_UpdateNamespaceResponse.Size(m)
+}
+func (m *UpdateNamespaceResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateNamespaceResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateNamespaceResponse proto.InternalMessageInfo
 
 type DeleteNamespaceRequest struct {
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteNamespaceRequest) Reset()                    { *m = DeleteNamespaceRequest{} }
 func (*DeleteNamespaceRequest) ProtoMessage()               {}
 func (*DeleteNamespaceRequest) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{9} }
+func (dst *DeleteNamespaceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteNamespaceRequest.Merge(dst, src)
+}
+func (m *DeleteNamespaceRequest) XXX_Size() int {
+	return xxx_messageInfo_DeleteNamespaceRequest.Size(m)
+}
+func (m *DeleteNamespaceRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteNamespaceRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteNamespaceRequest proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*Namespace)(nil), "containerd.services.namespaces.v1.Namespace")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.namespaces.v1.Namespace.LabelsEntry")
 	proto.RegisterType((*GetNamespaceRequest)(nil), "containerd.services.namespaces.v1.GetNamespaceRequest")
 	proto.RegisterType((*GetNamespaceResponse)(nil), "containerd.services.namespaces.v1.GetNamespaceResponse")
 	proto.RegisterType((*ListNamespacesRequest)(nil), "containerd.services.namespaces.v1.ListNamespacesRequest")
@@ -406,6 +547,11 @@ func (m *Namespace) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -429,6 +575,11 @@ func (m *GetNamespaceRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintNamespace(dAtA, i, uint64(len(m.Name)))
 		i += copy(dAtA[i:], m.Name)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -456,6 +607,11 @@ func (m *GetNamespaceResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n1
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -479,6 +635,11 @@ func (m *ListNamespacesRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintNamespace(dAtA, i, uint64(len(m.Filter)))
 		i += copy(dAtA[i:], m.Filter)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -510,6 +671,11 @@ func (m *ListNamespacesResponse) MarshalTo(dAtA []byte) (int, error) {
 			i += n
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -536,6 +702,11 @@ func (m *CreateNamespaceRequest) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n2
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -562,6 +733,11 @@ func (m *CreateNamespaceResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n3
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -598,6 +774,11 @@ func (m *UpdateNamespaceRequest) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n5
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -624,6 +805,11 @@ func (m *UpdateNamespaceResponse) MarshalTo(dAtA []byte) (int, error) {
 		return 0, err
 	}
 	i += n6
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -647,6 +833,11 @@ func (m *DeleteNamespaceRequest) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintNamespace(dAtA, i, uint64(len(m.Name)))
 		i += copy(dAtA[i:], m.Name)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -675,6 +866,11 @@ func (m *Namespace) Size() (n int) {
 			n += mapEntrySize + 1 + sovNamespace(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -685,6 +881,11 @@ func (m *GetNamespaceRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovNamespace(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -693,6 +894,11 @@ func (m *GetNamespaceResponse) Size() (n int) {
 	_ = l
 	l = m.Namespace.Size()
 	n += 1 + l + sovNamespace(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -702,6 +908,11 @@ func (m *ListNamespacesRequest) Size() (n int) {
 	l = len(m.Filter)
 	if l > 0 {
 		n += 1 + l + sovNamespace(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -715,6 +926,11 @@ func (m *ListNamespacesResponse) Size() (n int) {
 			n += 1 + l + sovNamespace(uint64(l))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -723,6 +939,11 @@ func (m *CreateNamespaceRequest) Size() (n int) {
 	_ = l
 	l = m.Namespace.Size()
 	n += 1 + l + sovNamespace(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -731,6 +952,11 @@ func (m *CreateNamespaceResponse) Size() (n int) {
 	_ = l
 	l = m.Namespace.Size()
 	n += 1 + l + sovNamespace(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -743,6 +969,11 @@ func (m *UpdateNamespaceRequest) Size() (n int) {
 		l = m.UpdateMask.Size()
 		n += 1 + l + sovNamespace(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -751,6 +982,11 @@ func (m *UpdateNamespaceResponse) Size() (n int) {
 	_ = l
 	l = m.Namespace.Size()
 	n += 1 + l + sovNamespace(uint64(l))
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -760,6 +996,11 @@ func (m *DeleteNamespaceRequest) Size() (n int) {
 	l = len(m.Name)
 	if l > 0 {
 		n += 1 + l + sovNamespace(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -794,6 +1035,7 @@ func (this *Namespace) String() string {
 	s := strings.Join([]string{`&Namespace{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -804,6 +1046,7 @@ func (this *GetNamespaceRequest) String() string {
 	}
 	s := strings.Join([]string{`&GetNamespaceRequest{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -814,6 +1057,7 @@ func (this *GetNamespaceResponse) String() string {
 	}
 	s := strings.Join([]string{`&GetNamespaceResponse{`,
 		`Namespace:` + strings.Replace(strings.Replace(this.Namespace.String(), "Namespace", "Namespace", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -824,6 +1068,7 @@ func (this *ListNamespacesRequest) String() string {
 	}
 	s := strings.Join([]string{`&ListNamespacesRequest{`,
 		`Filter:` + fmt.Sprintf("%v", this.Filter) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -834,6 +1079,7 @@ func (this *ListNamespacesResponse) String() string {
 	}
 	s := strings.Join([]string{`&ListNamespacesResponse{`,
 		`Namespaces:` + strings.Replace(strings.Replace(fmt.Sprintf("%v", this.Namespaces), "Namespace", "Namespace", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -844,6 +1090,7 @@ func (this *CreateNamespaceRequest) String() string {
 	}
 	s := strings.Join([]string{`&CreateNamespaceRequest{`,
 		`Namespace:` + strings.Replace(strings.Replace(this.Namespace.String(), "Namespace", "Namespace", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -854,6 +1101,7 @@ func (this *CreateNamespaceResponse) String() string {
 	}
 	s := strings.Join([]string{`&CreateNamespaceResponse{`,
 		`Namespace:` + strings.Replace(strings.Replace(this.Namespace.String(), "Namespace", "Namespace", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -865,6 +1113,7 @@ func (this *UpdateNamespaceRequest) String() string {
 	s := strings.Join([]string{`&UpdateNamespaceRequest{`,
 		`Namespace:` + strings.Replace(strings.Replace(this.Namespace.String(), "Namespace", "Namespace", 1), `&`, ``, 1) + `,`,
 		`UpdateMask:` + strings.Replace(fmt.Sprintf("%v", this.UpdateMask), "FieldMask", "google_protobuf2.FieldMask", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -875,6 +1124,7 @@ func (this *UpdateNamespaceResponse) String() string {
 	}
 	s := strings.Join([]string{`&UpdateNamespaceResponse{`,
 		`Namespace:` + strings.Replace(strings.Replace(this.Namespace.String(), "Namespace", "Namespace", 1), `&`, ``, 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -885,6 +1135,7 @@ func (this *DeleteNamespaceRequest) String() string {
 	}
 	s := strings.Join([]string{`&DeleteNamespaceRequest{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -1085,6 +1336,7 @@ func (m *Namespace) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1164,6 +1416,7 @@ func (m *GetNamespaceRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1244,6 +1497,7 @@ func (m *GetNamespaceResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1323,6 +1577,7 @@ func (m *ListNamespacesRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1404,6 +1659,7 @@ func (m *ListNamespacesResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1484,6 +1740,7 @@ func (m *CreateNamespaceRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1564,6 +1821,7 @@ func (m *CreateNamespaceResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1677,6 +1935,7 @@ func (m *UpdateNamespaceRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1757,6 +2016,7 @@ func (m *UpdateNamespaceResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1836,6 +2096,7 @@ func (m *DeleteNamespaceRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

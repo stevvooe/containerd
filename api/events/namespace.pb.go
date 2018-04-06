@@ -22,34 +22,78 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type NamespaceCreate struct {
-	Name   string            `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Labels map[string]string `protobuf:"bytes,2,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Name                 string            `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Labels               map[string]string `protobuf:"bytes,2,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *NamespaceCreate) Reset()                    { *m = NamespaceCreate{} }
 func (*NamespaceCreate) ProtoMessage()               {}
 func (*NamespaceCreate) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{0} }
+func (dst *NamespaceCreate) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NamespaceCreate.Merge(dst, src)
+}
+func (m *NamespaceCreate) XXX_Size() int {
+	return xxx_messageInfo_NamespaceCreate.Size(m)
+}
+func (m *NamespaceCreate) XXX_DiscardUnknown() {
+	xxx_messageInfo_NamespaceCreate.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_NamespaceCreate proto.InternalMessageInfo
 
 type NamespaceUpdate struct {
-	Name   string            `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Labels map[string]string `protobuf:"bytes,2,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Name                 string            `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Labels               map[string]string `protobuf:"bytes,2,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *NamespaceUpdate) Reset()                    { *m = NamespaceUpdate{} }
 func (*NamespaceUpdate) ProtoMessage()               {}
 func (*NamespaceUpdate) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{1} }
+func (dst *NamespaceUpdate) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NamespaceUpdate.Merge(dst, src)
+}
+func (m *NamespaceUpdate) XXX_Size() int {
+	return xxx_messageInfo_NamespaceUpdate.Size(m)
+}
+func (m *NamespaceUpdate) XXX_DiscardUnknown() {
+	xxx_messageInfo_NamespaceUpdate.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_NamespaceUpdate proto.InternalMessageInfo
 
 type NamespaceDelete struct {
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *NamespaceDelete) Reset()                    { *m = NamespaceDelete{} }
 func (*NamespaceDelete) ProtoMessage()               {}
 func (*NamespaceDelete) Descriptor() ([]byte, []int) { return fileDescriptorNamespace, []int{2} }
+func (dst *NamespaceDelete) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NamespaceDelete.Merge(dst, src)
+}
+func (m *NamespaceDelete) XXX_Size() int {
+	return xxx_messageInfo_NamespaceDelete.Size(m)
+}
+func (m *NamespaceDelete) XXX_DiscardUnknown() {
+	xxx_messageInfo_NamespaceDelete.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_NamespaceDelete proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*NamespaceCreate)(nil), "containerd.events.NamespaceCreate")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.events.NamespaceCreate.LabelsEntry")
 	proto.RegisterType((*NamespaceUpdate)(nil), "containerd.events.NamespaceUpdate")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.events.NamespaceUpdate.LabelsEntry")
 	proto.RegisterType((*NamespaceDelete)(nil), "containerd.events.NamespaceDelete")
 }
 
@@ -148,6 +192,11 @@ func (m *NamespaceCreate) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -189,6 +238,11 @@ func (m *NamespaceUpdate) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -212,6 +266,11 @@ func (m *NamespaceDelete) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintNamespace(dAtA, i, uint64(len(m.Name)))
 		i += copy(dAtA[i:], m.Name)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -240,6 +299,11 @@ func (m *NamespaceCreate) Size() (n int) {
 			n += mapEntrySize + 1 + sovNamespace(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -258,6 +322,11 @@ func (m *NamespaceUpdate) Size() (n int) {
 			n += mapEntrySize + 1 + sovNamespace(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -267,6 +336,11 @@ func (m *NamespaceDelete) Size() (n int) {
 	l = len(m.Name)
 	if l > 0 {
 		n += 1 + l + sovNamespace(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -301,6 +375,7 @@ func (this *NamespaceCreate) String() string {
 	s := strings.Join([]string{`&NamespaceCreate{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -322,6 +397,7 @@ func (this *NamespaceUpdate) String() string {
 	s := strings.Join([]string{`&NamespaceUpdate{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -332,6 +408,7 @@ func (this *NamespaceDelete) String() string {
 	}
 	s := strings.Join([]string{`&NamespaceDelete{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -532,6 +609,7 @@ func (m *NamespaceCreate) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -729,6 +807,7 @@ func (m *NamespaceUpdate) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -808,6 +887,7 @@ func (m *NamespaceDelete) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

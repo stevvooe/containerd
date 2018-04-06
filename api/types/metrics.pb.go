@@ -27,14 +27,28 @@ var _ = math.Inf
 var _ = time.Kitchen
 
 type Metric struct {
-	Timestamp time.Time             `protobuf:"bytes,1,opt,name=timestamp,stdtime" json:"timestamp"`
-	ID        string                `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
-	Data      *google_protobuf1.Any `protobuf:"bytes,3,opt,name=data" json:"data,omitempty"`
+	Timestamp            time.Time             `protobuf:"bytes,1,opt,name=timestamp,stdtime" json:"timestamp"`
+	ID                   string                `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	Data                 *google_protobuf1.Any `protobuf:"bytes,3,opt,name=data" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
 func (m *Metric) Reset()                    { *m = Metric{} }
 func (*Metric) ProtoMessage()               {}
 func (*Metric) Descriptor() ([]byte, []int) { return fileDescriptorMetrics, []int{0} }
+func (dst *Metric) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Metric.Merge(dst, src)
+}
+func (m *Metric) XXX_Size() int {
+	return xxx_messageInfo_Metric.Size(m)
+}
+func (m *Metric) XXX_DiscardUnknown() {
+	xxx_messageInfo_Metric.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Metric proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*Metric)(nil), "containerd.types.Metric")
@@ -78,6 +92,11 @@ func (m *Metric) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n2
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -103,6 +122,11 @@ func (m *Metric) Size() (n int) {
 		l = m.Data.Size()
 		n += 1 + l + sovMetrics(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -127,6 +151,7 @@ func (this *Metric) String() string {
 		`Timestamp:` + strings.Replace(strings.Replace(this.Timestamp.String(), "Timestamp", "google_protobuf2.Timestamp", 1), `&`, ``, 1) + `,`,
 		`ID:` + fmt.Sprintf("%v", this.ID) + `,`,
 		`Data:` + strings.Replace(fmt.Sprintf("%v", this.Data), "Any", "google_protobuf1.Any", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -272,6 +297,7 @@ func (m *Metric) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

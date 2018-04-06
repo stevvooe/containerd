@@ -21,34 +21,78 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type ImageCreate struct {
-	Name   string            `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Labels map[string]string `protobuf:"bytes,2,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Name                 string            `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Labels               map[string]string `protobuf:"bytes,2,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *ImageCreate) Reset()                    { *m = ImageCreate{} }
 func (*ImageCreate) ProtoMessage()               {}
 func (*ImageCreate) Descriptor() ([]byte, []int) { return fileDescriptorImage, []int{0} }
+func (dst *ImageCreate) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ImageCreate.Merge(dst, src)
+}
+func (m *ImageCreate) XXX_Size() int {
+	return xxx_messageInfo_ImageCreate.Size(m)
+}
+func (m *ImageCreate) XXX_DiscardUnknown() {
+	xxx_messageInfo_ImageCreate.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ImageCreate proto.InternalMessageInfo
 
 type ImageUpdate struct {
-	Name   string            `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Labels map[string]string `protobuf:"bytes,2,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Name                 string            `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Labels               map[string]string `protobuf:"bytes,2,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *ImageUpdate) Reset()                    { *m = ImageUpdate{} }
 func (*ImageUpdate) ProtoMessage()               {}
 func (*ImageUpdate) Descriptor() ([]byte, []int) { return fileDescriptorImage, []int{1} }
+func (dst *ImageUpdate) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ImageUpdate.Merge(dst, src)
+}
+func (m *ImageUpdate) XXX_Size() int {
+	return xxx_messageInfo_ImageUpdate.Size(m)
+}
+func (m *ImageUpdate) XXX_DiscardUnknown() {
+	xxx_messageInfo_ImageUpdate.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ImageUpdate proto.InternalMessageInfo
 
 type ImageDelete struct {
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ImageDelete) Reset()                    { *m = ImageDelete{} }
 func (*ImageDelete) ProtoMessage()               {}
 func (*ImageDelete) Descriptor() ([]byte, []int) { return fileDescriptorImage, []int{2} }
+func (dst *ImageDelete) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ImageDelete.Merge(dst, src)
+}
+func (m *ImageDelete) XXX_Size() int {
+	return xxx_messageInfo_ImageDelete.Size(m)
+}
+func (m *ImageDelete) XXX_DiscardUnknown() {
+	xxx_messageInfo_ImageDelete.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ImageDelete proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*ImageCreate)(nil), "containerd.services.images.v1.ImageCreate")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.images.v1.ImageCreate.LabelsEntry")
 	proto.RegisterType((*ImageUpdate)(nil), "containerd.services.images.v1.ImageUpdate")
+	proto.RegisterMapType((map[string]string)(nil), "containerd.services.images.v1.ImageUpdate.LabelsEntry")
 	proto.RegisterType((*ImageDelete)(nil), "containerd.services.images.v1.ImageDelete")
 }
 
@@ -147,6 +191,11 @@ func (m *ImageCreate) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -188,6 +237,11 @@ func (m *ImageUpdate) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], v)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -211,6 +265,11 @@ func (m *ImageDelete) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintImage(dAtA, i, uint64(len(m.Name)))
 		i += copy(dAtA[i:], m.Name)
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -239,6 +298,11 @@ func (m *ImageCreate) Size() (n int) {
 			n += mapEntrySize + 1 + sovImage(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -257,6 +321,11 @@ func (m *ImageUpdate) Size() (n int) {
 			n += mapEntrySize + 1 + sovImage(uint64(mapEntrySize))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -266,6 +335,11 @@ func (m *ImageDelete) Size() (n int) {
 	l = len(m.Name)
 	if l > 0 {
 		n += 1 + l + sovImage(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -300,6 +374,7 @@ func (this *ImageCreate) String() string {
 	s := strings.Join([]string{`&ImageCreate{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -321,6 +396,7 @@ func (this *ImageUpdate) String() string {
 	s := strings.Join([]string{`&ImageUpdate{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
 		`Labels:` + mapStringForLabels + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -331,6 +407,7 @@ func (this *ImageDelete) String() string {
 	}
 	s := strings.Join([]string{`&ImageDelete{`,
 		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -531,6 +608,7 @@ func (m *ImageCreate) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -728,6 +806,7 @@ func (m *ImageUpdate) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -807,6 +886,7 @@ func (m *ImageDelete) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

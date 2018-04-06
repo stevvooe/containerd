@@ -23,12 +23,26 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type ContentDelete struct {
-	Digest github_com_opencontainers_go_digest.Digest `protobuf:"bytes,1,opt,name=digest,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"digest"`
+	Digest               github_com_opencontainers_go_digest.Digest `protobuf:"bytes,1,opt,name=digest,proto3,customtype=github.com/opencontainers/go-digest.Digest" json:"digest"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
 }
 
 func (m *ContentDelete) Reset()                    { *m = ContentDelete{} }
 func (*ContentDelete) ProtoMessage()               {}
 func (*ContentDelete) Descriptor() ([]byte, []int) { return fileDescriptorContent, []int{0} }
+func (dst *ContentDelete) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ContentDelete.Merge(dst, src)
+}
+func (m *ContentDelete) XXX_Size() int {
+	return xxx_messageInfo_ContentDelete.Size(m)
+}
+func (m *ContentDelete) XXX_DiscardUnknown() {
+	xxx_messageInfo_ContentDelete.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ContentDelete proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*ContentDelete)(nil), "containerd.events.ContentDelete")
@@ -68,6 +82,11 @@ func (m *ContentDelete) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintContent(dAtA, i, uint64(len(m.Digest)))
 		i += copy(dAtA[i:], m.Digest)
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -86,6 +105,11 @@ func (m *ContentDelete) Size() (n int) {
 	l = len(m.Digest)
 	if l > 0 {
 		n += 1 + l + sovContent(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -109,6 +133,7 @@ func (this *ContentDelete) String() string {
 	}
 	s := strings.Join([]string{`&ContentDelete{`,
 		`Digest:` + fmt.Sprintf("%v", this.Digest) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -191,6 +216,7 @@ func (m *ContentDelete) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

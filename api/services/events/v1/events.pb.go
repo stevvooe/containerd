@@ -52,40 +52,96 @@ var _ = time.Kitchen
 const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
 type PublishRequest struct {
-	Topic string                `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
-	Event *google_protobuf1.Any `protobuf:"bytes,2,opt,name=event" json:"event,omitempty"`
+	Topic                string                `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
+	Event                *google_protobuf1.Any `protobuf:"bytes,2,opt,name=event" json:"event,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
 func (m *PublishRequest) Reset()                    { *m = PublishRequest{} }
 func (*PublishRequest) ProtoMessage()               {}
 func (*PublishRequest) Descriptor() ([]byte, []int) { return fileDescriptorEvents, []int{0} }
+func (dst *PublishRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PublishRequest.Merge(dst, src)
+}
+func (m *PublishRequest) XXX_Size() int {
+	return xxx_messageInfo_PublishRequest.Size(m)
+}
+func (m *PublishRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_PublishRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PublishRequest proto.InternalMessageInfo
 
 type ForwardRequest struct {
-	Envelope *Envelope `protobuf:"bytes,1,opt,name=envelope" json:"envelope,omitempty"`
+	Envelope             *Envelope `protobuf:"bytes,1,opt,name=envelope" json:"envelope,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *ForwardRequest) Reset()                    { *m = ForwardRequest{} }
 func (*ForwardRequest) ProtoMessage()               {}
 func (*ForwardRequest) Descriptor() ([]byte, []int) { return fileDescriptorEvents, []int{1} }
+func (dst *ForwardRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ForwardRequest.Merge(dst, src)
+}
+func (m *ForwardRequest) XXX_Size() int {
+	return xxx_messageInfo_ForwardRequest.Size(m)
+}
+func (m *ForwardRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ForwardRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ForwardRequest proto.InternalMessageInfo
 
 type SubscribeRequest struct {
-	Filters []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	Filters              []string `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *SubscribeRequest) Reset()                    { *m = SubscribeRequest{} }
 func (*SubscribeRequest) ProtoMessage()               {}
 func (*SubscribeRequest) Descriptor() ([]byte, []int) { return fileDescriptorEvents, []int{2} }
+func (dst *SubscribeRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SubscribeRequest.Merge(dst, src)
+}
+func (m *SubscribeRequest) XXX_Size() int {
+	return xxx_messageInfo_SubscribeRequest.Size(m)
+}
+func (m *SubscribeRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SubscribeRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SubscribeRequest proto.InternalMessageInfo
 
 type Envelope struct {
-	Timestamp time.Time             `protobuf:"bytes,1,opt,name=timestamp,stdtime" json:"timestamp"`
-	Namespace string                `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	Topic     string                `protobuf:"bytes,3,opt,name=topic,proto3" json:"topic,omitempty"`
-	Event     *google_protobuf1.Any `protobuf:"bytes,4,opt,name=event" json:"event,omitempty"`
+	Timestamp            time.Time             `protobuf:"bytes,1,opt,name=timestamp,stdtime" json:"timestamp"`
+	Namespace            string                `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
+	Topic                string                `protobuf:"bytes,3,opt,name=topic,proto3" json:"topic,omitempty"`
+	Event                *google_protobuf1.Any `protobuf:"bytes,4,opt,name=event" json:"event,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
 func (m *Envelope) Reset()                    { *m = Envelope{} }
 func (*Envelope) ProtoMessage()               {}
 func (*Envelope) Descriptor() ([]byte, []int) { return fileDescriptorEvents, []int{3} }
+func (dst *Envelope) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Envelope.Merge(dst, src)
+}
+func (m *Envelope) XXX_Size() int {
+	return xxx_messageInfo_Envelope.Size(m)
+}
+func (m *Envelope) XXX_DiscardUnknown() {
+	xxx_messageInfo_Envelope.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Envelope proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*PublishRequest)(nil), "containerd.services.events.v1.PublishRequest")
@@ -351,6 +407,11 @@ func (m *PublishRequest) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n1
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -378,6 +439,11 @@ func (m *ForwardRequest) MarshalTo(dAtA []byte) (int, error) {
 			return 0, err
 		}
 		i += n2
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
 	}
 	return i, nil
 }
@@ -410,6 +476,11 @@ func (m *SubscribeRequest) MarshalTo(dAtA []byte) (int, error) {
 			dAtA[i] = uint8(l)
 			i++
 			i += copy(dAtA[i:], s)
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
 		}
 	}
 	return i, nil
@@ -460,6 +531,11 @@ func (m *Envelope) MarshalTo(dAtA []byte) (int, error) {
 		}
 		i += n4
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -483,6 +559,11 @@ func (m *PublishRequest) Size() (n int) {
 		l = m.Event.Size()
 		n += 1 + l + sovEvents(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -492,6 +573,11 @@ func (m *ForwardRequest) Size() (n int) {
 	if m.Envelope != nil {
 		l = m.Envelope.Size()
 		n += 1 + l + sovEvents(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -503,6 +589,11 @@ func (m *SubscribeRequest) Size() (n int) {
 		for _, s := range m.Filters {
 			l = len(s)
 			n += 1 + l + sovEvents(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
 		}
 	}
 	return n
@@ -524,6 +615,11 @@ func (m *Envelope) Size() (n int) {
 	if m.Event != nil {
 		l = m.Event.Size()
 		n += 1 + l + sovEvents(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
 	}
 	return n
 }
@@ -548,6 +644,7 @@ func (this *PublishRequest) String() string {
 	s := strings.Join([]string{`&PublishRequest{`,
 		`Topic:` + fmt.Sprintf("%v", this.Topic) + `,`,
 		`Event:` + strings.Replace(fmt.Sprintf("%v", this.Event), "Any", "google_protobuf1.Any", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -558,6 +655,7 @@ func (this *ForwardRequest) String() string {
 	}
 	s := strings.Join([]string{`&ForwardRequest{`,
 		`Envelope:` + strings.Replace(fmt.Sprintf("%v", this.Envelope), "Envelope", "Envelope", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -568,6 +666,7 @@ func (this *SubscribeRequest) String() string {
 	}
 	s := strings.Join([]string{`&SubscribeRequest{`,
 		`Filters:` + fmt.Sprintf("%v", this.Filters) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -581,6 +680,7 @@ func (this *Envelope) String() string {
 		`Namespace:` + fmt.Sprintf("%v", this.Namespace) + `,`,
 		`Topic:` + fmt.Sprintf("%v", this.Topic) + `,`,
 		`Event:` + strings.Replace(fmt.Sprintf("%v", this.Event), "Any", "google_protobuf1.Any", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -696,6 +796,7 @@ func (m *PublishRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -779,6 +880,7 @@ func (m *ForwardRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -858,6 +960,7 @@ func (m *SubscribeRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1029,6 +1132,7 @@ func (m *Envelope) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

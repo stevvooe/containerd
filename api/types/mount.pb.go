@@ -35,12 +35,26 @@ type Mount struct {
 	// Target path in container
 	Target string `protobuf:"bytes,3,opt,name=target,proto3" json:"target,omitempty"`
 	// Options specifies zero or more fstab style mount options.
-	Options []string `protobuf:"bytes,4,rep,name=options" json:"options,omitempty"`
+	Options              []string `protobuf:"bytes,4,rep,name=options" json:"options,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `protobuf_unrecognized:"proto3" json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *Mount) Reset()                    { *m = Mount{} }
 func (*Mount) ProtoMessage()               {}
 func (*Mount) Descriptor() ([]byte, []int) { return fileDescriptorMount, []int{0} }
+func (dst *Mount) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Mount.Merge(dst, src)
+}
+func (m *Mount) XXX_Size() int {
+	return xxx_messageInfo_Mount.Size(m)
+}
+func (m *Mount) XXX_DiscardUnknown() {
+	xxx_messageInfo_Mount.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Mount proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*Mount)(nil), "containerd.types.Mount")
@@ -93,6 +107,11 @@ func (m *Mount) MarshalTo(dAtA []byte) (int, error) {
 			i += copy(dAtA[i:], s)
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			i += copy(dAtA[i:], m.XXX_unrecognized)
+		}
+	}
 	return i, nil
 }
 
@@ -126,6 +145,11 @@ func (m *Mount) Size() (n int) {
 			n += 1 + l + sovMount(uint64(l))
 		}
 	}
+	if m.XXX_unrecognized != nil {
+		if proto.Proto3UnknownFields {
+			n += len(m.XXX_unrecognized)
+		}
+	}
 	return n
 }
 
@@ -151,6 +175,7 @@ func (this *Mount) String() string {
 		`Source:` + fmt.Sprintf("%v", this.Source) + `,`,
 		`Target:` + fmt.Sprintf("%v", this.Target) + `,`,
 		`Options:` + fmt.Sprintf("%v", this.Options) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -320,6 +345,7 @@ func (m *Mount) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
